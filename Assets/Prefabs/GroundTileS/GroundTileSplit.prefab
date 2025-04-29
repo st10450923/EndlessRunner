@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 7586861290176107264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7338295, y: 3.6155915, z: 0.62602615}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -164,9 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4db7ec767217ee419ee21e1e0eb82d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstaclePrefab: {fileID: 6888461945551766203, guid: c1fcf6b705b25fa47acd29306ec2c56d, type: 3}
   pointsPrefab: {fileID: 4253171605571517043, guid: 07e2787be266c3649b48924132b9e1ef, type: 3}
-  PickupPrefab: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
+  ObstaclePrefab1: {fileID: 6888461945551766203, guid: c1fcf6b705b25fa47acd29306ec2c56d, type: 3}
+  ObstaclePrefab2: {fileID: 6888461945551766203, guid: bef7fbb6548f3ec409a1565f862d0a55, type: 3}
+  ObstaclePrefab3: {fileID: 6888461945551766203, guid: b087fc7b7efca19429f01b07180ac8fc, type: 3}
+  PickupPrefab1: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
+  PickupPrefab2: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
+  PickupPrefab3: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
   PickupSpawnRate: 8
 --- !u!1 &7977478398222659411
 GameObject:

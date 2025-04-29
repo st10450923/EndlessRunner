@@ -4,9 +4,13 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     GroundSpawner groundSpawner;
-    public GameObject ObstaclePrefab;
+    public GameObject ObstaclePrefab1;
+    public GameObject ObstaclePrefab2;
+    public GameObject ObstaclePrefab3;
     public GameObject pointsPrefab;
-    public GameObject PickupPrefab;
+    public GameObject PickupPrefab1;
+    public GameObject PickupPrefab2;
+    public GameObject PickupPrefab3;
     public int PickupSpawnRate;
 
     void Start()
@@ -21,15 +25,33 @@ public class GroundTile : MonoBehaviour
         if (other.tag == "Player")
         {
             groundSpawner.SpawnTile();
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 2);
         }
-    } 
+    }
 
     void SpawnObstacles()
     {
-        int ObstacleSpawnIndex = Random.Range(2, 5);
-        Transform SpawnPoint = transform.GetChild(ObstacleSpawnIndex).transform;
-        Instantiate(ObstaclePrefab, SpawnPoint.position, Quaternion.identity, transform);
+        int ObstacleSpawnLocation = Random.Range(2, 5);
+        Transform SpawnPoint = transform.GetChild(ObstacleSpawnLocation).transform;
+        int ObstacleType = Random.Range(1, 4);
+        GameObject temp;
+        switch (ObstacleType)
+        {
+            case 1:
+                temp = ObstaclePrefab1;
+                break;
+            case 2:
+                temp = ObstaclePrefab2;
+                break;
+            case 3:
+                temp = ObstaclePrefab3;
+                break;
+            default:
+                temp = null;
+                break;
+        }
+        if(temp!=null)
+            Instantiate(temp, SpawnPoint.position, Quaternion.identity, transform);
     }
     void SpawnPoints()
     {
@@ -41,9 +63,25 @@ public class GroundTile : MonoBehaviour
         int Roll = Random.Range(0, PickupSpawnRate);
         if (Roll != 0)
             return;
-        GameObject temp = Instantiate(PickupPrefab,transform);
-        temp.transform.position = RandomColliderPoint(GetComponent<Collider>());
-
+        int PickUpType = Random.Range(1,4);
+        GameObject temp;
+        switch (PickUpType)
+        {
+            case 1:
+                temp = PickupPrefab1;
+                break;
+            case 2:
+                temp = PickupPrefab2;
+                break;
+            case 3:
+                temp = PickupPrefab3;
+                break;
+            default:
+                temp = null;
+                break;
+        }
+        if(temp!=null)
+            Instantiate(temp, RandomColliderPoint(GetComponent<Collider>()), Quaternion.identity, transform);
     }
 
     Vector3 RandomColliderPoint (Collider collider)

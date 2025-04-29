@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTile: {fileID: 7586861290176107264, guid: 3fd3f20c0e3e7c9488f860f3ede9cbe4, type: 3}
-  TileAmount: 8
-  TileDestroyTimer: 1
+  groundTileSplit: {fileID: 7586861290176107264, guid: 0cfea9357008f734bb8b6de4e2b0f105, type: 3}
+  groundTileMiddle: {fileID: 7586861290176107264, guid: b47c70defe2676d4db5ebee3afe62f24, type: 3}
+  TileAmount: 6
+  TileDestroyTimer: 2

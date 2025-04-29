@@ -35,6 +35,6 @@ public class GroundSpawner : MonoBehaviour
                 Temp = Instantiate(groundTile, NextSpawnPoint, Quaternion.identity);
                 break;
         }
-        NextSpawnPoint = Temp.transform.GetChild(TileDestroyTimer).transform.position;
+        NextSpawnPoint = Temp.transform.GetChild(1).transform.position;
     }
 }
