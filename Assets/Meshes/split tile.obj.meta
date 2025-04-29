@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 277b806d98ace0649b9cf473c07b0694
+guid: 33b504916c76a6841a2f9e9c1469ab5a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: split_tile_split_tile_groupMat
+    second: {fileID: 2100000, guid: 2886ac35dd2d6f94eafe4ff0a7dc9a8e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

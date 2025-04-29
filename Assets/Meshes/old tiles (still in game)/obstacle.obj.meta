@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 390eaccb8d0602740b214aeff45bb7b6
+guid: 737f5860b7d1f4549964b82fe0fde7fd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: full_tile_full_tile_groupMat
-    second: {fileID: 2100000, guid: 6bcb99029a2399649bfbd26d25cf9fd4, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

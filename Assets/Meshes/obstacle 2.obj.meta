@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 390eaccb8d0602740b214aeff45bb7b6
+guid: b4da479b800d4a74180539f7ab0444aa
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: full_tile_full_tile_groupMat
-    second: {fileID: 2100000, guid: 6bcb99029a2399649bfbd26d25cf9fd4, type: 2}
+      name: Obstacel_2Mat
+    second: {fileID: 2100000, guid: 96cbf77acf0cbcc4bbaf10f8519c4e0f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

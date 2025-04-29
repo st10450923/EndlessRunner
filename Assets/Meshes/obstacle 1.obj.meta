@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 390eaccb8d0602740b214aeff45bb7b6
+guid: 44dfbd47be4d57e4a825f0fc5af1398d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: full_tile_full_tile_groupMat
-    second: {fileID: 2100000, guid: 6bcb99029a2399649bfbd26d25cf9fd4, type: 2}
+      name: penelope_Group24642_Original_groupMat
+    second: {fileID: 2100000, guid: 813f3badbbcef0b44b54326b9c70e2b7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

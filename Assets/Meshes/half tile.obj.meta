@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 49738e861067f63489b43868e444e3bb
+guid: 5c00e208e74255c47bb9471dc249750e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: half_tile_half_tile_groupMat
+    second: {fileID: 2100000, guid: 24b0c6d85143c0c47b2ef56fc7f0f163, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
