@@ -11,6 +11,7 @@ public class GroundTileSplit : MonoBehaviour
     public GameObject PickupPrefab1;
     public GameObject PickupPrefab2;
     public GameObject PickupPrefab3;
+    Quaternion ObstacleRotation;
     public int PickupSpawnRate;
 
     void Start()
@@ -31,6 +32,9 @@ public class GroundTileSplit : MonoBehaviour
     void SpawnObstacles()
     {
         int ObstacleSpawnLocation = Random.Range(2, 5);
+        if (ObstacleSpawnLocation ==2)
+            ObstacleRotation = new(0, 0, 0, 1);
+        else ObstacleRotation = new(0, 180, 0, 1);
         Transform SpawnPoint = transform.GetChild(ObstacleSpawnLocation).transform;
         int ObstacleType = Random.Range(1, 4);
         GameObject temp;

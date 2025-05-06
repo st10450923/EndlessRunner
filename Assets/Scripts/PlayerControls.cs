@@ -43,7 +43,8 @@ public class PlayerControls : MonoBehaviour
     {
         float height = GetComponent<Collider>().bounds.size.y;
         bool isGrounded = Physics.Raycast(transform.position, Vector3.down,(height/2)+0.1f, GroundMask);
-        if(isGrounded)
+        Debug.DrawRay(transform.position, Vector3.down,Color.red, GroundMask);
+        if (isGrounded)
             rb.AddForce(Vector3.up*JumpForce);
     }
 

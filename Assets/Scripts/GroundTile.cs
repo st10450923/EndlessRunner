@@ -12,10 +12,12 @@ public class GroundTile : MonoBehaviour
     public GameObject PickupPrefab2;
     public GameObject PickupPrefab3;
     public int PickupSpawnRate;
+    Quaternion ObstacleRotation;
 
     void Start()
     {
         groundSpawner = GameObject.FindFirstObjectByType<GroundSpawner>();
+        ObstacleRotation =new (0,180,0,1);
         SpawnObstacles();
         SpawnPoints();
         SpawnPickups();
@@ -32,6 +34,10 @@ public class GroundTile : MonoBehaviour
     void SpawnObstacles()
     {
         int ObstacleSpawnLocation = Random.Range(2, 5);
+        if (ObstacleSpawnLocation == 2)
+            ObstacleRotation = new(0, 0, 0, 1);
+        else
+            ObstacleRotation = new(0, 180, 0, 1);
         Transform SpawnPoint = transform.GetChild(ObstacleSpawnLocation).transform;
         int ObstacleType = Random.Range(1, 4);
         GameObject temp;
@@ -51,7 +57,7 @@ public class GroundTile : MonoBehaviour
                 break;
         }
         if(temp!=null)
-            Instantiate(temp, SpawnPoint.position, Quaternion.identity, transform);
+            Instantiate(temp, SpawnPoint.position, ObstacleRotation, transform);
     }
     void SpawnPoints()
     {
