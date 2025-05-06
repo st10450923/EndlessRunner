@@ -12,7 +12,7 @@ public class PlayerControls : MonoBehaviour
     float SpeedMultiplier=1;
     public float VeerSpeed = 2;
     public bool SpeedBoosted = false;
-
+    public float FallMultiplier=2f;
     GameEngine gameEngine;
     public float JumpForce = 400f;
     [Serialize] public LayerMask GroundMask;
@@ -24,9 +24,18 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         if (Dead) return;
+
+        //Movement Controlls
         Vector3 Run = transform.forward * ForwardSpeed  *SpeedMultiplier* Time.fixedDeltaTime;
         Vector3 Veer = transform.right * VeerInput*SpeedMultiplier* Time.fixedDeltaTime;
         rb.MovePosition(rb.position + Run + Veer);
+
+        //Falling Modifier
+
+        if (rb.angularVelocity.y<0)
+        {
+            rb.angularVelocity += Vector3.up * Physics.gravity.y * FallMultiplier * Time.deltaTime;
+        }
     }
     private void Update()
     {
@@ -43,7 +52,8 @@ public class PlayerControls : MonoBehaviour
     {
         float height = GetComponent<Collider>().bounds.size.y;
         bool isGrounded = Physics.Raycast(transform.position, Vector3.down,(height/2)+0.1f, GroundMask);
-        if(isGrounded)
+        Debug.DrawRay(transform.position, Vector3.down,Color.red, GroundMask);
+        if (isGrounded)
             rb.AddForce(Vector3.up*JumpForce);
     }
 
