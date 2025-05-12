@@ -1,20 +1,25 @@
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
     public Rigidbody rb;
-    public float ForwardSpeed = 1;
-    float VeerInput;
     bool Dead = false;
-    float SpeedMultiplier=1;
+    //For movement calculations
+    public float ForwardSpeed = 1;
+    public bool PointsBoosted = false;
     public float VeerSpeed = 2;
-    public bool SpeedBoosted = false;
-    public float FallMultiplier=2f;
-    GameEngine gameEngine;
+    public float FallMultiplier = 2f;
+    float VeerInput;
     public float JumpForce = 400f;
+    bool isGrounded=true;
+    //For Speed boost pickup
+    public float SpeedMultiplier =1;
+    public bool SpeedBoosted = false;
+    //For shield buff
+    public bool isShielded = false;
+
+    GameEngine gameEngine;
     [Serialize] public LayerMask GroundMask;
     private void Awake()
     {
@@ -51,7 +56,7 @@ public class PlayerControls : MonoBehaviour
     void Jump()
     {
         float height = GetComponent<Collider>().bounds.size.y;
-        bool isGrounded = Physics.Raycast(transform.position, Vector3.down,(height/2)+0.1f, GroundMask);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down,(height/2)+0.1f, GroundMask);
         Debug.DrawRay(transform.position, Vector3.down,Color.red, GroundMask);
         if (isGrounded)
             rb.AddForce(Vector3.up*JumpForce);
@@ -62,24 +67,61 @@ public class PlayerControls : MonoBehaviour
         Dead = true;
         gameEngine.GameOver();
     }
-    public void SpeedBoost(int Duration,float BoostAmount)
+    public void SpeedBoost(int duration,float BoostAmount)
     {
         if (SpeedBoosted == true)
         {
             CancelInvoke("EndSpeedBoost");
-            SpeedMultiplier = BoostAmount;
-            Invoke("EndSpeedBoost", Duration);
+            Invoke("EndSpeedBoost", duration);
         }
         else
         {
             SpeedBoosted = true;
             SpeedMultiplier = BoostAmount;
-            Invoke("EndSpeedBoost", Duration);
+            Invoke("EndSpeedBoost", duration);
         }
     }
     void EndSpeedBoost()
     {
         SpeedBoosted = false;
         SpeedMultiplier = 1;
+    }
+    //Functions for points multiplier pickup
+    public void PointBoost(int duration, float BoostAmount)
+    {
+        if (PointsBoosted == true)
+        {
+            CancelInvoke("EndPointBoost");
+            Invoke("EndPointBoost", duration);
+        }
+        else
+        {
+            PointsBoosted = true;
+            gameEngine.PointsMultiplier = BoostAmount;
+            Invoke("EndPointBoost", duration);
+        }
+    }
+    void EndPointBoost()
+    {
+        PointsBoosted = false;
+        gameEngine.PointsMultiplier = 1;
+    }
+    // Functions for shield pickup
+    public void ShieldBuff(float duration)
+    {
+        if (isShielded == true)
+        {
+            CancelInvoke("EndShieldBuff");
+            Invoke("EndShieldBuff", duration);
+        }
+        else
+        {
+            isShielded = true;
+            Invoke("EndShieldBuff",duration);
+        }
+    }
+    void EndShieldBuff()
+    {
+        isShielded = false;
     }
 }

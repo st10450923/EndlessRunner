@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Obstacle.cs" />
+    <Compile Include="Assets\Scripts\PointsBoost.cs" />
     <Compile Include="Assets\Scripts\Points.cs" />
     <Compile Include="Assets\Scripts\GameEngine.cs" />
     <Compile Include="Assets\Scripts\GroundTileSplit.cs" />
@@ -69,7 +70,8 @@
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\GroundTileMiddle.cs" />
     <Compile Include="Assets\Scripts\GroundTile.cs" />
-    <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\SpeedBoost.cs" />
+    <Compile Include="Assets\Scripts\ShieldBuff.cs" />
     <Compile Include="Assets\Scripts\GroundSpawner.cs" />
   </ItemGroup>
   <ItemGroup>

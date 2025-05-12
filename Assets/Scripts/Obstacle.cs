@@ -11,9 +11,15 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject == playerControls)
         {
-            playerControls.KillPlayer();
+            if (playerControls.isShielded == true)
+            {
+                Destroy(gameObject);
+                playerControls.isShielded = false;
+            }
+            else
+                playerControls.KillPlayer();
         }
         
     }

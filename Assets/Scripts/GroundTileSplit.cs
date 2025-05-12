@@ -4,6 +4,7 @@ using UnityEngine;
 public class GroundTileSplit : MonoBehaviour
 {
     GroundSpawner groundSpawner;
+    GameEngine gameEngine;
     public GameObject pointsPrefab;
     public GameObject ObstaclePrefab1;
     public GameObject ObstaclePrefab2;
@@ -16,8 +17,9 @@ public class GroundTileSplit : MonoBehaviour
 
     void Start()
     {
+        gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         groundSpawner = GameObject.FindFirstObjectByType<GroundSpawner>();
-        SpawnObstacles();
+        PickupSpawnRate = gameEngine.PickupSpawnRate; SpawnObstacles();
         SpawnPoints();
         SpawnPickups();
     }

@@ -8,7 +8,7 @@ public class GroundSpawner : MonoBehaviour
     Vector3 NextSpawnPoint;
     public float TileAmount;
     public int TileDestroyTimer;
-
+    public float PickupSpawnRate;
     void Start()
     {
         for(int i = 0;i<TileAmount;i++)

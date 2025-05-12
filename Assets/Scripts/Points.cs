@@ -8,7 +8,7 @@ public class Points : MonoBehaviour
         {
             return;
         }
-        GameEngine.Inst.IncrementScore();
+        GameEngine.Inst.AddPoints(1);
         Destroy(gameObject);
     }
 }

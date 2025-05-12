@@ -104,10 +104,10 @@ MonoBehaviour:
   ObstaclePrefab1: {fileID: 6888461945551766203, guid: c1fcf6b705b25fa47acd29306ec2c56d, type: 3}
   ObstaclePrefab2: {fileID: 6888461945551766203, guid: b087fc7b7efca19429f01b07180ac8fc, type: 3}
   ObstaclePrefab3: {fileID: 6888461945551766203, guid: bef7fbb6548f3ec409a1565f862d0a55, type: 3}
-  PickupPrefab1: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
-  PickupPrefab2: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
-  PickupPrefab3: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
-  PickupSpawnRate: 8
+  PickupPrefab1: {fileID: 750436878373974812, guid: 9d85c9f943f91354a88d159c9f083c53, type: 3}
+  PickupPrefab2: {fileID: 750436878373974812, guid: cc7b885e7251bc34a929fe7c0f350964, type: 3}
+  PickupPrefab3: {fileID: 750436878373974812, guid: ad920a70b154582458dedace89c44790, type: 3}
+  PickupSpawnRate: 16
   DestructionTimer: 2
 --- !u!1 &7977478398222659411
 GameObject:
