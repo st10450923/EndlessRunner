@@ -9,7 +9,7 @@ public class PlayerControls : MonoBehaviour
     public float ForwardSpeed = 1;
     public bool PointsBoosted = false;
     public float VeerSpeed = 2;
-    public float FallMultiplier = 2f;
+    public float FallMultiplier = 40f;
     float VeerInput;
     public float JumpForce = 400f;
     bool isGrounded=true;
@@ -120,8 +120,10 @@ public class PlayerControls : MonoBehaviour
             Invoke("EndShieldBuff",duration);
         }
     }
-    void EndShieldBuff()
+    public void EndShieldBuff()
     {
+        CancelInvoke("EndShieldBuff");
         isShielded = false;
+        Debug.Log("Shield Lost");
     }
 }

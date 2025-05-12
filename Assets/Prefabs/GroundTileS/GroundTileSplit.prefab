@@ -171,7 +171,7 @@ MonoBehaviour:
   PickupPrefab1: {fileID: 750436878373974812, guid: 9d85c9f943f91354a88d159c9f083c53, type: 3}
   PickupPrefab2: {fileID: 750436878373974812, guid: cc7b885e7251bc34a929fe7c0f350964, type: 3}
   PickupPrefab3: {fileID: 750436878373974812, guid: ad920a70b154582458dedace89c44790, type: 3}
-  PickupSpawnRate: 16
+  PickupSpawnRate: 2
 --- !u!1 &7977478398222659411
 GameObject:
   m_ObjectHideFlags: 0

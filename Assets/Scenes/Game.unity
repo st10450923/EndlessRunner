@@ -957,6 +957,8 @@ MonoBehaviour:
   FinalScore: {fileID: 613449002}
   GameOverScreen: {fileID: 1642355418}
   Scoreboard: {fileID: 1402209224}
+  PointsMultiplier: 1
+  PickupSpawnRate: 6
 --- !u!4 &1455980011
 Transform:
   m_ObjectHideFlags: 0
@@ -1438,6 +1440,18 @@ PrefabInstance:
     - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: JumpForce
       value: 6000
+      objectReference: {fileID: 0}
+    - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: isShielded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: PointsBoosted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: FallMultiplier
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 5438788866719065646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: m_Drag
