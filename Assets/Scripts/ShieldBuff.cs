@@ -1,12 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class ShieldBuff : MonoBehaviour
 {
     PlayerControls playerControls;
     public float Spin=90f;
-    public int SpeedBoostDuration=5;
-    public float SpeedBoostAmount=1.5f;
+    public int Duration=5;
     void Start()
     {
         playerControls = GameObject.FindFirstObjectByType<PlayerControls>();
@@ -23,9 +22,9 @@ public class Pickup : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        if (other.gameObject.name == "Player")
+        if (other.gameObject == playerControls)
         {
-            playerControls.SpeedBoost(SpeedBoostDuration, SpeedBoostAmount);
+            playerControls.ShieldBuff(Duration);
             Destroy(gameObject);
         }
 

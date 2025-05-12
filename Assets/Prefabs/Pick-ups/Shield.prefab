@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4259929618448180078}
   - component: {fileID: 2589436819609236308}
+  - component: {fileID: 5180706212374755857}
   - component: {fileID: 5940861289694821873}
   - component: {fileID: 4624205590077571125}
   - component: {fileID: 4446078190127077746}
   m_Layer: 0
-  m_Name: Pick-up
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +43,21 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750436878373974812}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -1045101197386244359, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+--- !u!114 &5180706212374755857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750436878373974812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b982436b2ed8c54a935fff36e3c27b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spin: 90
+  Duration: 5
 --- !u!23 &5940861289694821873
 MeshRenderer:
   m_ObjectHideFlags: 0

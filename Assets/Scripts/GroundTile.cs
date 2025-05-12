@@ -4,6 +4,7 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     GroundSpawner groundSpawner;
+    GameEngine gameEngine;
     public GameObject ObstaclePrefab1;
     public GameObject ObstaclePrefab2;
     public GameObject ObstaclePrefab3;
@@ -12,12 +13,15 @@ public class GroundTile : MonoBehaviour
     public GameObject PickupPrefab2;
     public GameObject PickupPrefab3;
     public int PickupSpawnRate;
+    public int ObstacleSpawnRate;
     Quaternion ObstacleRotation;
 
     void Start()
     {
+        gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         groundSpawner = GameObject.FindFirstObjectByType<GroundSpawner>();
         ObstacleRotation =new (0,180,0,1);
+        PickupSpawnRate = gameEngine.PickupSpawnRate;
         SpawnObstacles();
         SpawnPoints();
         SpawnPickups();

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GroundTileMiddle : MonoBehaviour
 {
+    GameEngine gameEngine;
     GroundSpawner groundSpawner;
     public GameObject pointsPrefab;
     public GameObject ObstaclePrefab1;
@@ -17,6 +18,7 @@ public class GroundTileMiddle : MonoBehaviour
 
     void Start()
     {
+        gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         groundSpawner = GameObject.FindFirstObjectByType<GroundSpawner>();
         SpawnObstacles();
         SpawnPoints();
