@@ -19,6 +19,7 @@ public class PlayerControls : MonoBehaviour
     //For shield buff
     public bool isShielded = false;
 
+
     GameEngine gameEngine;
     [Serialize] public LayerMask GroundMask;
     private void Awake()
@@ -29,23 +30,17 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         if (Dead) return;
-
+        Debug.Log(SpeedMultiplier);
         //Movement Controlls
         Vector3 Run = transform.forward * ForwardSpeed  *SpeedMultiplier* Time.fixedDeltaTime;
         Vector3 Veer = transform.right * VeerInput*SpeedMultiplier* Time.fixedDeltaTime;
         rb.MovePosition(rb.position + Run + Veer);
-
-        //Falling Modifier
-
-        if (rb.angularVelocity.y<0)
-        {
-            rb.angularVelocity += Vector3.up * Physics.gravity.y * FallMultiplier * Time.deltaTime;
-        }
     }
     private void Update()
     {
         if (Dead) return;
-        if (transform.position.y<-2)
+
+        if (transform.position.y < -2)
         {
             KillPlayer();
         }
@@ -59,7 +54,14 @@ public class PlayerControls : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, Vector3.down,0.1f, GroundMask);
         Debug.DrawRay(transform.position, Vector3.down,Color.red, GroundMask);
         if (isGrounded)
-            rb.AddForce(Vector3.up*JumpForce);
+            rb.AddForce(Vector3.up * JumpForce * ForwardSpeed);
+        else
+            Drop();
+    }
+
+    void Drop()
+    {
+        rb.AddForce(-Vector3.up * JumpForce * FallMultiplier * ForwardSpeed);
     }
 
     public void KillPlayer()
@@ -72,6 +74,7 @@ public class PlayerControls : MonoBehaviour
         if (SpeedBoosted == true)
         {
             CancelInvoke("EndSpeedBoost");
+            SpeedMultiplier = BoostAmount;
             Invoke("EndSpeedBoost", duration);
         }
         else

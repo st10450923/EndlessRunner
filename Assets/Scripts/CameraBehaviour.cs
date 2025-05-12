@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
 {
-    public Transform Player;
-    Vector3 CameraOffset;
+    public Transform Target;
+    public Vector3 Offset;
     void Start()
     {
-        CameraOffset = transform.position - Player.position;
+        Offset = transform.position - Target.position;
     }
     void Update()
     {
-        Vector3 Target = Player.position + CameraOffset;
-        Target.x = 0;
-        transform.position = Target;
+        Vector3 Destination = Target.position + Offset;
+        Destination.x = 4;
+        transform.position = Destination;
     }
 }
