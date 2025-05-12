@@ -958,7 +958,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 1642355418}
   Scoreboard: {fileID: 1402209224}
   PointsMultiplier: 1
-  PickupSpawnRate: 6
+  PickupSpawnRate: 2
 --- !u!4 &1455980011
 Transform:
   m_ObjectHideFlags: 0
@@ -1416,6 +1416,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6868991676526881157, guid: 2d4d098849b7d204cb55295d683488a6, type: 3}
+      propertyPath: rail1
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 34c3bc6a7f555d24ebb787418247a3cf, type: 3}
+    - target: {fileID: 6868991676526881157, guid: 2d4d098849b7d204cb55295d683488a6, type: 3}
+      propertyPath: rail2
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 80130be4c918c0245bfe7142040bb526, type: 3}
+    - target: {fileID: 6868991676526881157, guid: 2d4d098849b7d204cb55295d683488a6, type: 3}
+      propertyPath: rail3
+      value: 
+      objectReference: {fileID: 6585708191101055829, guid: a55e211ba7a72234aabf41743e769f0c, type: 3}
+    - target: {fileID: 6868991676526881157, guid: 2d4d098849b7d204cb55295d683488a6, type: 3}
+      propertyPath: rail4
+      value: 
+      objectReference: {fileID: 7096541039289737123, guid: 3d515056a58e8344d9203e96bb3e50be, type: 3}
     - target: {fileID: 6868991676526881157, guid: 2d4d098849b7d204cb55295d683488a6, type: 3}
       propertyPath: groundTileSplit
       value: 
