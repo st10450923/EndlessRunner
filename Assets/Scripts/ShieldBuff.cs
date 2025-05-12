@@ -22,7 +22,7 @@ public class ShieldBuff : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        if (other.gameObject == playerControls)
+        if (other.gameObject.name == "Player")
         {
             playerControls.ShieldBuff(Duration);
             Destroy(gameObject);
