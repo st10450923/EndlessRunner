@@ -56,7 +56,7 @@ public class PlayerControls : MonoBehaviour
     void Jump()
     {
         float height = GetComponent<Collider>().bounds.size.y;
-        isGrounded = Physics.Raycast(transform.position, Vector3.down,(height/2)+0.1f, GroundMask);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down,0.1f, GroundMask);
         Debug.DrawRay(transform.position, Vector3.down,Color.red, GroundMask);
         if (isGrounded)
             rb.AddForce(Vector3.up*JumpForce);

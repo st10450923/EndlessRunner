@@ -226,7 +226,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -239,7 +239,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6bcb99029a2399649bfbd26d25cf9fd4, type: 2}
+  - {fileID: 2100000, guid: 24b0c6d85143c0c47b2ef56fc7f0f163, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -328,7 +328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984414209137645525, guid: 9e5d058bbfa0a454d805dd1cdf16c794, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3984414209137645525, guid: 9e5d058bbfa0a454d805dd1cdf16c794, type: 3}
       propertyPath: m_LocalPosition.x
