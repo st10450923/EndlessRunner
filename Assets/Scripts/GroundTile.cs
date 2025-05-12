@@ -1,3 +1,4 @@
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -90,13 +91,26 @@ public class GroundTile : MonoBehaviour
                 temp = null;
                 break;
         }
-        if(temp!=null)
+        if (temp != null)
+        {
+            Vector3 rand = RandomColliderPoint(GetComponent<Collider>());
+            while (!isValid(rand))
+            {
+                rand = RandomColliderPoint(GetComponent<Collider>());
+            }
             Instantiate(temp, RandomColliderPoint(GetComponent<Collider>()), Quaternion.identity, transform);
+        }
     }
-
     Vector3 RandomColliderPoint (Collider collider)
     {
-        Vector3 point = new Vector3(Random.Range(collider.bounds.min.x,collider.bounds.max.x), 1, Random.Range(collider.bounds.min.z, collider.bounds.max.z));
+        Vector3 point = new Vector3(Random.Range(collider.bounds.min.x, collider.bounds.max.x), 1, Random.Range(collider.bounds.min.z, collider.bounds.max.z));
         return point;
+    }
+    bool isValid(Vector3 point)
+    {
+        if (!Physics.CheckSphere(point, 1))
+            return false;
+        else
+            return true;
     }
 }

@@ -36,5 +36,6 @@ public class GroundSpawner : MonoBehaviour
                 break;
         }
         NextSpawnPoint = Temp.transform.GetChild(1).transform.position;
+        
     }
 }

@@ -11,12 +11,12 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == playerControls)
+        if (collision.gameObject.name == "Player")
         {
             if (playerControls.isShielded == true)
             {
                 Destroy(gameObject);
-                playerControls.isShielded = false;
+                playerControls.EndShieldBuff();
             }
             else
                 playerControls.KillPlayer();

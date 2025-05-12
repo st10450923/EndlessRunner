@@ -20,6 +20,7 @@ public class GroundTileMiddle : MonoBehaviour
     {
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         groundSpawner = GameObject.FindFirstObjectByType<GroundSpawner>();
+        PickupSpawnRate = gameEngine.PickupSpawnRate;
         SpawnObstacles();
         SpawnPoints();
         SpawnPickups();
