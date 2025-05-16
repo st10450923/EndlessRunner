@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1106f63c80e51684c928174b2e543f2e
+guid: 4b46c4a1ee0c02b44ab08cab769609c6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: buff_1_Test_Hand_group1Mat
+      name: buff_2_shoesMat
     second: {fileID: 2100000, guid: 1fffaa87867f7944aabc4358bcdc4dd1, type: 2}
   materials:
     materialImportMode: 2
