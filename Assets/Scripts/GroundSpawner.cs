@@ -40,7 +40,6 @@ public class GroundSpawner : MonoBehaviour
                 break;
         }
         NextSpawnPoint = Temp.transform.GetChild(1).transform.position;
-        //SpawnRail(Temp);
     }
     void SpawnRail(GameObject RailSpawnPoint)
     {
@@ -65,6 +64,5 @@ public class GroundSpawner : MonoBehaviour
                 Rail = Instantiate(rail1, groundTile.transform);
                 break;
         }
-        //Rail.transform.rotation = RailRotation;
     }
 }

@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rail_2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 80130be4c918c0245bfe7142040bb526, type: 3}
+      propertyPath: m_TagString
+      value: Rail
+      objectReference: {fileID: 0}
     - target: {fileID: 2086914181702179092, guid: 80130be4c918c0245bfe7142040bb526, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068

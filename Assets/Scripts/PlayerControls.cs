@@ -18,6 +18,9 @@ public class PlayerControls : MonoBehaviour
     public bool SpeedBoosted = false;
     //For shield buff
     public bool isShielded = false;
+    //For flight buff
+    public bool hasDoubleJump = false;
+    public bool DoubleJumpAvailable = true;
 
 
     GameEngine gameEngine;
@@ -25,6 +28,7 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
+        Rigidbody rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
@@ -47,16 +51,24 @@ public class PlayerControls : MonoBehaviour
         VeerInput = Input.GetAxis("Horizontal")*VeerSpeed;
         if(Input.GetKeyDown(KeyCode.Space))
             Jump();
+        if (Input.GetKeyDown(KeyCode.S))
+            Drop();
     }
     void Jump()
     {
         float height = GetComponent<Collider>().bounds.size.y;
         isGrounded = Physics.Raycast(transform.position, Vector3.down,0.1f, GroundMask);
-        Debug.DrawRay(transform.position, Vector3.down,Color.red, GroundMask);
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, GroundMask);
         if (isGrounded)
+        {
             rb.AddForce(Vector3.up * JumpForce * ForwardSpeed);
-        else
-            Drop();
+            DoubleJumpAvailable = true;
+        }
+        else if (hasDoubleJump&&DoubleJumpAvailable)
+        {
+            rb.AddForce(Vector3.up * JumpForce * ForwardSpeed);
+            DoubleJumpAvailable = false;
+        }
     }
 
     void Drop()
@@ -69,6 +81,7 @@ public class PlayerControls : MonoBehaviour
         Dead = true;
         gameEngine.GameOver();
     }
+    //Functions for speed boost
     public void SpeedBoost(int duration,float BoostAmount)
     {
         if (SpeedBoosted == true)
@@ -76,51 +89,59 @@ public class PlayerControls : MonoBehaviour
             CancelInvoke("EndSpeedBoost");
             SpeedMultiplier = BoostAmount;
             Invoke("EndSpeedBoost", duration);
+            Debug.Log("Speed Boost Extended");
         }
         else
         {
             SpeedBoosted = true;
             SpeedMultiplier = BoostAmount;
             Invoke("EndSpeedBoost", duration);
+            Debug.Log("Speed Boost Gained");
         }
     }
     void EndSpeedBoost()
     {
         SpeedBoosted = false;
         SpeedMultiplier = 1;
+        Debug.Log("Speed Boost Lost");
     }
-    //Functions for points multiplier pickup
+    //Functions for points multiplier
     public void PointBoost(int duration, float BoostAmount)
     {
         if (PointsBoosted == true)
         {
             CancelInvoke("EndPointBoost");
             Invoke("EndPointBoost", duration);
+            Debug.Log("Point Boost Extended");
         }
         else
         {
             PointsBoosted = true;
             gameEngine.PointsMultiplier = BoostAmount;
             Invoke("EndPointBoost", duration);
+            Debug.Log("Point Boost Gained");
         }
     }
     void EndPointBoost()
     {
         PointsBoosted = false;
         gameEngine.PointsMultiplier = 1;
+        Debug.Log("Point Boost Lost");
     }
-    // Functions for shield pickup
+    // Functions for shield
     public void ShieldBuff(float duration)
     {
         if (isShielded == true)
         {
             CancelInvoke("EndShieldBuff");
             Invoke("EndShieldBuff", duration);
+            Debug.Log("Shield Extended");
         }
         else
         {
             isShielded = true;
             Invoke("EndShieldBuff",duration);
+            Debug.Log("Shield Gained");
         }
     }
     public void EndShieldBuff()
@@ -128,5 +149,28 @@ public class PlayerControls : MonoBehaviour
         CancelInvoke("EndShieldBuff");
         isShielded = false;
         Debug.Log("Shield Lost");
+    }
+    // Functions for Double Jump 
+    public void DoubleJump(float duration)
+    {
+        if (hasDoubleJump == true)
+        {
+            CancelInvoke("EndDoubleJump");
+            Invoke("EndDoubleJump",duration);
+            Debug.Log("Double Jump Extended");
+        }
+        else
+        {
+            hasDoubleJump = true;
+            DoubleJumpAvailable = true;
+            Invoke("EndDoubleJump", duration);
+            Debug.Log("Double Jump Gained");
+        }
+    }
+    public void EndDoubleJump()
+    {
+        CancelInvoke("EndDoubleJump");
+        hasDoubleJump = false;
+        Debug.Log("Double Jump Lost");
     }
 }

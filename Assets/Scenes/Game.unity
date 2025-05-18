@@ -1588,6 +1588,14 @@ PrefabInstance:
       propertyPath: FallMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4667645717090559646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667645717090559646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 981829549142797063, guid: 13b9ffcda260dd64ea0fe7f9beeb0743, type: 3}
     - target: {fileID: 5438788866719065646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: m_Drag
       value: 0.05

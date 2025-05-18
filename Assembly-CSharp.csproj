@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Obstacle.cs" />
     <Compile Include="Assets\Scripts\PointsBoost.cs" />
     <Compile Include="Assets\Scripts\Points.cs" />
+    <Compile Include="Assets\Scripts\DoubleJump.cs" />
     <Compile Include="Assets\Scripts\GameEngine.cs" />
     <Compile Include="Assets\Scripts\GroundTileSplit.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />

@@ -52,7 +52,7 @@ public class GroundTileSplit : MonoBehaviour
                 temp = ObstaclePrefab3;
                 break;
             default:
-                temp = null;
+                temp = null; 
                 break;
         }
         if (temp != null)
