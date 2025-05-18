@@ -45,4 +45,8 @@ public class GameEngine : MonoBehaviour
     {
         Application.Quit();
     }
+    public void SpawnBoss()
+    {
+
+    }
 }
