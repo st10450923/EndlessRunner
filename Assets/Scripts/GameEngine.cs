@@ -53,7 +53,8 @@ public class GameEngine : MonoBehaviour
     void SpawnBoss()
     {
         Vector3 BossPosition = Player.position + BossOffset;
-        BossInstance = Instantiate(Boss, BossPosition,new Quaternion(0,0,0,0));
+        Quaternion BossRotaiton = Quaternion.Euler(50f,-14f,0f);
+        BossInstance = Instantiate(Boss, BossPosition, BossRotaiton);
         Invoke("DestroyBoss",BossDuration);
         BossActive = true;
         DistanceSinceBoss = 0f;
