@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spin: 90
-  Duration: 30
+  Duration: 12
   BoostMultiplier: 1.5
 --- !u!64 &1325319787369786345
 MeshCollider:

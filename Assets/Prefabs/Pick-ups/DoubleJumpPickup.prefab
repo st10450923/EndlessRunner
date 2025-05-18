@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 750436878373974812, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
       propertyPath: m_Name
-      value: FlightPickup
+      value: DoubleJumpPickup
       objectReference: {fileID: 0}
     - target: {fileID: 2589436819609236308, guid: 34a16b89d6788b74fb6cc23d1784b1f2, type: 3}
       propertyPath: m_Mesh
@@ -120,4 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spin: 90
-  FlightBuffDuration: 5
+  DoubleJumpDuration: 8

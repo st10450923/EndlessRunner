@@ -62,17 +62,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Obstacle.cs" />
-    <Compile Include="Assets\Scripts\PointsBoost.cs" />
     <Compile Include="Assets\Scripts\Points.cs" />
-    <Compile Include="Assets\Scripts\DoubleJump.cs" />
+    <Compile Include="Assets\Scripts\Tiles\GroundTileSplit.cs" />
+    <Compile Include="Assets\Scripts\BuffsDebuffs\PointsBoost.cs" />
     <Compile Include="Assets\Scripts\GameEngine.cs" />
-    <Compile Include="Assets\Scripts\GroundTileSplit.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\Meshes\HaloMesh.cs" />
+    <Compile Include="Assets\Scripts\Tiles\GroundTileMiddle.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
-    <Compile Include="Assets\Scripts\GroundTileMiddle.cs" />
-    <Compile Include="Assets\Scripts\GroundTile.cs" />
-    <Compile Include="Assets\Scripts\SpeedBoost.cs" />
-    <Compile Include="Assets\Scripts\ShieldBuff.cs" />
+    <Compile Include="Assets\Scripts\BuffsDebuffs\ShieldBuff.cs" />
+    <Compile Include="Assets\Scripts\BuffsDebuffs\DoubleJump.cs" />
+    <Compile Include="Assets\Scripts\Tiles\GroundTile.cs" />
+    <Compile Include="Assets\Scripts\BuffsDebuffs\SpeedBoost.cs" />
+    <Compile Include="Assets\Scripts\Meshes\ShieldMesh.cs" />
+    <Compile Include="Assets\Scripts\Meshes\BootsMesh.cs" />
     <Compile Include="Assets\Scripts\GroundSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1198,6 +1201,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
