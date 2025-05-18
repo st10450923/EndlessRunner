@@ -68,12 +68,15 @@
     <Compile Include="Assets\Scripts\GameEngine.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Meshes\HaloMesh.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\AngelAttack.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTileMiddle.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\ShieldBuff.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\DoubleJump.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossMovement.cs" />
+    <Compile Include="Assets\DestroyBeam.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTile.cs" />
-    <Compile Include="Assets\Scripts\BossMovement.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossDespawn.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\SpeedBoost.cs" />
     <Compile Include="Assets\Scripts\Meshes\ShieldMesh.cs" />
     <Compile Include="Assets\Scripts\Meshes\BootsMesh.cs" />

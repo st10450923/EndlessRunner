@@ -34,7 +34,6 @@ public class PlayerControls : MonoBehaviour
     private void FixedUpdate()
     {
         if (Dead) return;
-        Debug.Log(SpeedMultiplier);
         //Movement Controlls
         Vector3 Run = transform.forward * ForwardSpeed  *SpeedMultiplier* Time.fixedDeltaTime;
         Vector3 Veer = transform.right * VeerInput*SpeedMultiplier* Time.fixedDeltaTime;
