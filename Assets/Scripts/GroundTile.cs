@@ -108,7 +108,7 @@ public class GroundTile : MonoBehaviour
     }
     bool isValid(Vector3 point)
     {
-        if (!Physics.CheckSphere(point, 1))
+        if (!Physics.CheckSphere(point, 2))
             return false;
         else
             return true;
