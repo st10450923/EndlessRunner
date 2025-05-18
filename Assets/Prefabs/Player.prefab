@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.134369
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1631794
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52,21 +52,49 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7985008695973009714, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 981829549142797063, guid: 13b9ffcda260dd64ea0fe7f9beeb0743, type: 3}
     - target: {fileID: -7689913427414147760, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7170652000453705755, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: Head
       objectReference: {fileID: 0}
     - target: {fileID: -7112078214747980690, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5807707078864731356, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: Belt
+      objectReference: {fileID: 0}
+    - target: {fileID: -5559622392579009103, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: LeftFoot
+      objectReference: {fileID: 0}
     - target: {fileID: -4883460625027047327, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3907446159012078563, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: Horns
+      objectReference: {fileID: 0}
     - target: {fileID: -3359339557601383525, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3244627895116890896, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: Torso
+      objectReference: {fileID: 0}
+    - target: {fileID: -2869299399007276115, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: LeftLeg
       objectReference: {fileID: 0}
     - target: {fileID: -2415803130257296025, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
@@ -80,13 +108,29 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -676650064470367170, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: LeftArm
+      objectReference: {fileID: 0}
+    - target: {fileID: -660988032706910561, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: LeftGlove
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245706489302717821, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: RightArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466621028971547329, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: RightFoot
       objectReference: {fileID: 0}
     - target: {fileID: 1798780460834873392, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
@@ -95,6 +139,10 @@ PrefabInstance:
     - target: {fileID: 2137339110148598379, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482534324204423552, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: RightLeg
       objectReference: {fileID: 0}
     - target: {fileID: 3194493636128215742, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
@@ -107,6 +155,22 @@ PrefabInstance:
     - target: {fileID: 3809958454323296888, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830051712414030786, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: Skirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315781004509386849, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: Hair
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231764426077192890, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: Halo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879955001494401920, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Name
+      value: RightHand
       objectReference: {fileID: 0}
     - target: {fileID: 6962016844810740862, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Enabled
@@ -166,8 +230,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6712661668639079681}
   serializedVersion: 4
-  m_Mass: 6
-  m_Drag: 0
+  m_Mass: 60
+  m_Drag: 0.05
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -199,9 +263,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5438788866719065646}
   ForwardSpeed: 8
-  VeerSpeed: 4
-  SpeedBoosted: 0
+  PointsBoosted: 0
+  VeerSpeed: 5
+  FallMultiplier: 2
   JumpForce: 1500
+  SpeedMultiplier: 1
+  SpeedBoosted: 1
+  isShielded: 0
+  hasDoubleJump: 0
+  DoubleJumpAvailable: 0
   GroundMask:
     serializedVersion: 2
     m_Bits: 8

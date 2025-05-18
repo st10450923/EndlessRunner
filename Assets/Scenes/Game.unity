@@ -1564,38 +1564,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
-      propertyPath: JumpForce
-      value: 1500
+    - target: {fileID: 221107355262794912, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: Torso
       objectReference: {fileID: 0}
     - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: VeerSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
-      propertyPath: isShielded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: SpeedBoosted
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
-      propertyPath: PointsBoosted
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 236586256519193517, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: FallMultiplier
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4667645717090559646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 545761646651278058, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: Halo
+      objectReference: {fileID: 0}
+    - target: {fileID: 704655626247877629, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: LeftLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050395852170802128, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741966729418841165, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: Horns
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826836749721380559, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: LeftGlove
+      objectReference: {fileID: 0}
+    - target: {fileID: 2843264161846027374, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: LeftArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656968969445987629, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: RightArm
       objectReference: {fileID: 0}
     - target: {fileID: 4667645717090559646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 981829549142797063, guid: 13b9ffcda260dd64ea0fe7f9beeb0743, type: 3}
+    - target: {fileID: 5022428271881898641, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: RightFoot
+      objectReference: {fileID: 0}
     - target: {fileID: 5438788866719065646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: m_Drag
       value: 0.05
@@ -1603,6 +1623,10 @@ PrefabInstance:
     - target: {fileID: 5438788866719065646, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: m_Mass
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590649486013824949, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: Head
       objectReference: {fileID: 0}
     - target: {fileID: 6225094625299572667, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1647,6 +1671,26 @@ PrefabInstance:
     - target: {fileID: 6712661668639079681, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147497428480202209, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: LeftFoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263831572736990098, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: Skirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642036942711347249, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: Hair
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330243386828818896, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: RightLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 9119686749120807796, guid: fb4bde7f527fead4b98e11b4fa60e2ff, type: 3}
+      propertyPath: m_Name
+      value: Belt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
