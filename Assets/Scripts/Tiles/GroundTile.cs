@@ -6,6 +6,7 @@ public class GroundTile : MonoBehaviour
 {
     GroundSpawner groundSpawner;
     GameEngine gameEngine;
+    public Transform Player;
     public GameObject ObstaclePrefab1;
     public GameObject ObstaclePrefab2;
     public GameObject ObstaclePrefab3;
@@ -21,7 +22,8 @@ public class GroundTile : MonoBehaviour
     {
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         groundSpawner = GameObject.FindFirstObjectByType<GroundSpawner>();
-        ObstacleRotation =new (0,180,0,1);
+        Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
+        ObstacleRotation = new (0,180,0,1);
         PickupSpawnRate = gameEngine.PickupSpawnRate;
         SpawnObstacles();
         SpawnPoints();

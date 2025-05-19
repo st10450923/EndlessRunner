@@ -7,6 +7,9 @@ public class PlayerControls : MonoBehaviour
     public Rigidbody rb;
     bool Dead = false;
     private bool isPaused;
+    GameEngine gameEngine;
+    public Animator animator;
+    [Serialize] public LayerMask GroundMask;
     //For movement calculations
     public float ForwardSpeed = 1;
     public bool PointsBoosted = false;
@@ -20,21 +23,24 @@ public class PlayerControls : MonoBehaviour
     public bool SpeedBoosted = false;
     //For shield buff
     public bool isShielded = false;
-    //For flight buff
+    //For double jump buff
     public bool hasDoubleJump = false;
     public bool DoubleJumpAvailable = true;
-    GameEngine gameEngine;
-    [Serialize] public LayerMask GroundMask;
+
     private void Awake()
     {
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         Rigidbody rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
         if (Dead) return;
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f, GroundMask);
+        if (isGrounded)
+            animator.SetBool("isJumping", false);
         //Movement Controlls
-        Vector3 Run = transform.forward * ForwardSpeed  *SpeedMultiplier* Time.fixedDeltaTime;
+        Vector3 Run = transform.forward * ForwardSpeed * SpeedMultiplier * Time.fixedDeltaTime;
         Vector3 Veer = transform.right * VeerInput*SpeedMultiplier* Time.fixedDeltaTime;
         rb.MovePosition(rb.position + Run + Veer);
     }
@@ -53,21 +59,19 @@ public class PlayerControls : MonoBehaviour
     }
     void Jump()
     {
-        float height = GetComponent<Collider>().bounds.size.y;
-        isGrounded = Physics.Raycast(transform.position, Vector3.down,0.1f, GroundMask);
-        Debug.DrawRay(transform.position, Vector3.down, Color.red, GroundMask);
         if (isGrounded)
         {
             rb.AddForce(Vector3.up * JumpForce * ForwardSpeed);
             DoubleJumpAvailable = true;
+            animator.SetBool("isJumping", true);
         }
         else if (hasDoubleJump&&DoubleJumpAvailable)
         {
             rb.AddForce(Vector3.up * JumpForce * ForwardSpeed);
             DoubleJumpAvailable = false;
+            animator.SetBool("isJumping", true);
         }
     }
-
     void Drop()
     {
         rb.AddForce(-Vector3.up * JumpForce * FallMultiplier * ForwardSpeed);
