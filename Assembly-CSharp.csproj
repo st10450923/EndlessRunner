@@ -74,8 +74,8 @@
     <Compile Include="Assets\Scripts\BuffsDebuffs\ShieldBuff.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\DoubleJump.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossMovement.cs" />
-    <Compile Include="Assets\DestroyBeam.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTile.cs" />
+    <Compile Include="Assets\Scripts\Destroy.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossDespawn.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\SpeedBoost.cs" />
     <Compile Include="Assets\Scripts\Meshes\ShieldMesh.cs" />

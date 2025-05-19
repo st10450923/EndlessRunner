@@ -1,10 +1,12 @@
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
     public Rigidbody rb;
     bool Dead = false;
+    private bool isPaused;
     //For movement calculations
     public float ForwardSpeed = 1;
     public bool PointsBoosted = false;
@@ -21,8 +23,6 @@ public class PlayerControls : MonoBehaviour
     //For flight buff
     public bool hasDoubleJump = false;
     public bool DoubleJumpAvailable = true;
-
-
     GameEngine gameEngine;
     [Serialize] public LayerMask GroundMask;
     private void Awake()
@@ -30,7 +30,6 @@ public class PlayerControls : MonoBehaviour
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         Rigidbody rb = GetComponent<Rigidbody>();
     }
-
     private void FixedUpdate()
     {
         if (Dead) return;
@@ -42,12 +41,11 @@ public class PlayerControls : MonoBehaviour
     private void Update()
     {
         if (Dead) return;
-
+        VeerInput = Input.GetAxis("Horizontal") * VeerSpeed;
+        if (Input.GetKeyDown(KeyCode.Escape))
+            gameEngine.TogglePause();
         if (transform.position.y < -2)
-        {
-            KillPlayer();
-        }
-        VeerInput = Input.GetAxis("Horizontal")*VeerSpeed;
+                KillPlayer();
         if(Input.GetKeyDown(KeyCode.Space))
             Jump();
         if (Input.GetKeyDown(KeyCode.S))
@@ -74,7 +72,6 @@ public class PlayerControls : MonoBehaviour
     {
         rb.AddForce(-Vector3.up * JumpForce * FallMultiplier * ForwardSpeed);
     }
-
     public void KillPlayer()
     {
         Dead = true;

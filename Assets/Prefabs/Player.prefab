@@ -258,6 +258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hair
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 07e7f9e9547095a48800e989bd6c9c3f, type: 2}
     - target: {fileID: 6231764426077192890, guid: 4718883ce22936c4d8413e4905526fc5, type: 3}
       propertyPath: m_Name
       value: Halo

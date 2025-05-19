@@ -7,17 +7,20 @@ public class GameEngine : MonoBehaviour
     private Transform Player;
     public float Points;
     public static GameEngine Inst;
-    //variables for scoreboard
+    public bool Paused;
+    //variables for UI
     public Text points;
     public Text FinalScore;
     public GameObject GameOverScreen;
     public GameObject Scoreboard;
+    public GameObject PauseMenu;
     //Variables for pickups
     public float PointsMultiplier=1;
     public int PickupSpawnRate=1;
     //Variables for boss
     public GameObject Boss;
     private GameObject BossInstance;
+    public int BossPointValue = 100;
     public float InitialSpawnDelay = 30f;
     public float BossSpawnDistance = 200f;
     private Vector3 BossOffset = new Vector3(-10, 2, 5);
@@ -35,6 +38,7 @@ public class GameEngine : MonoBehaviour
     {
         Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
         GameOverScreen.SetActive(false);
+        PauseMenu.SetActive(false);
         Invoke(nameof(SpawnBoss), InitialSpawnDelay);
     }
 
@@ -64,7 +68,7 @@ public class GameEngine : MonoBehaviour
         Debug.Log("Destroy Boss!");
         Destroy(BossInstance);
         BossActive = false;
-        AddPoints(250);
+        AddPoints(BossPointValue);
     }
     public void AddPoints(int AddedPoints)
     {
@@ -77,9 +81,29 @@ public class GameEngine : MonoBehaviour
         Scoreboard.SetActive(false);
         GameOverScreen.SetActive(true);
     }
+    public void Pause()
+    {
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        Paused = true;
+    }
+    public void Unpause()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        Paused = false;
+    }
+    public void TogglePause()
+    {
+        if (Paused)
+            Unpause();
+        else
+            Pause();
+    }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Unpause();
     }
     public void Quit()
     {
