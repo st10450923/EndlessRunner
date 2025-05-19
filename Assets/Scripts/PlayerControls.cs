@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class PlayerControls : MonoBehaviour
     public float FallMultiplier = 40f;
     float VeerInput;
     public float JumpForce = 400f;
-    bool isGrounded=true;
+    bool isGrounded = true;
     //For Speed boost pickup
-    public float SpeedMultiplier =1;
+    public float SpeedMultiplier = 1;
     public bool SpeedBoosted = false;
     //For shield buff
     public bool isShielded = false;
@@ -27,11 +28,14 @@ public class PlayerControls : MonoBehaviour
     public bool hasDoubleJump = false;
     public bool DoubleJumpAvailable = true;
 
+    private CharacterController controller;
+
     private void Awake()
     {
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         Rigidbody rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        controller = GetComponent<CharacterController>();
     }
     private void FixedUpdate()
     {
@@ -41,7 +45,7 @@ public class PlayerControls : MonoBehaviour
             animator.SetBool("isJumping", false);
         //Movement Controlls
         Vector3 Run = transform.forward * ForwardSpeed * SpeedMultiplier * Time.fixedDeltaTime;
-        Vector3 Veer = transform.right * VeerInput*SpeedMultiplier* Time.fixedDeltaTime;
+        Vector3 Veer = transform.right * VeerInput * SpeedMultiplier * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + Run + Veer);
     }
     private void Update()
@@ -51,8 +55,8 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             gameEngine.TogglePause();
         if (transform.position.y < -2)
-                KillPlayer();
-        if(Input.GetKeyDown(KeyCode.Space))
+            KillPlayer();
+        if (Input.GetKeyDown(KeyCode.Space))
             Jump();
         if (Input.GetKeyDown(KeyCode.S))
             Drop();
@@ -64,25 +68,29 @@ public class PlayerControls : MonoBehaviour
             rb.AddForce(Vector3.up * JumpForce * ForwardSpeed);
             DoubleJumpAvailable = true;
             animator.SetBool("isJumping", true);
+            animator.Play("Jumping"); // Play the jump animation
         }
-        else if (hasDoubleJump&&DoubleJumpAvailable)
+        else if (hasDoubleJump && DoubleJumpAvailable)
         {
             rb.AddForce(Vector3.up * JumpForce * ForwardSpeed);
             DoubleJumpAvailable = false;
             animator.SetBool("isJumping", true);
+            animator.Play("Jumping"); // Play the jump animation again for double jump
         }
     }
     void Drop()
     {
         rb.AddForce(-Vector3.up * JumpForce * FallMultiplier * ForwardSpeed);
     }
+
     public void KillPlayer()
     {
         Dead = true;
         gameEngine.GameOver();
     }
+
     //Functions for speed boost
-    public void SpeedBoost(int duration,float BoostAmount)
+    public void SpeedBoost(int duration, float BoostAmount)
     {
         if (SpeedBoosted == true)
         {
@@ -140,7 +148,7 @@ public class PlayerControls : MonoBehaviour
         else
         {
             isShielded = true;
-            Invoke("EndShieldBuff",duration);
+            Invoke("EndShieldBuff", duration);
             Debug.Log("Shield Gained");
         }
     }
@@ -156,7 +164,7 @@ public class PlayerControls : MonoBehaviour
         if (hasDoubleJump == true)
         {
             CancelInvoke("EndDoubleJump");
-            Invoke("EndDoubleJump",duration);
+            Invoke("EndDoubleJump", duration);
             Debug.Log("Double Jump Extended");
         }
         else
