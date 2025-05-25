@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dccac82f6406864e98c4c78865f371c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   ObstaclePrefab1: {fileID: 6888461945551766203, guid: c1fcf6b705b25fa47acd29306ec2c56d, type: 3}
   ObstaclePrefab2: {fileID: 6888461945551766203, guid: bef7fbb6548f3ec409a1565f862d0a55, type: 3}
   ObstaclePrefab3: {fileID: 6888461945551766203, guid: b087fc7b7efca19429f01b07180ac8fc, type: 3}
@@ -215,7 +216,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7977478398222659411}
-  m_Mesh: {fileID: -1355198221246907764, guid: 390eaccb8d0602740b214aeff45bb7b6, type: 3}
+  m_Mesh: {fileID: -1823287731924628374, guid: 3e3ba59d751d5d14bb06281bb35dcfa7, type: 3}
 --- !u!23 &4503314568501575112
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24b0c6d85143c0c47b2ef56fc7f0f163, type: 2}
+  - {fileID: 2100000, guid: df1098338f0b18b4aae1d3823d21809c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -282,7 +283,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -1355198221246907764, guid: 390eaccb8d0602740b214aeff45bb7b6, type: 3}
+  m_Mesh: {fileID: -1823287731924628374, guid: 3e3ba59d751d5d14bb06281bb35dcfa7, type: 3}
 --- !u!1 &9161992748249535826
 GameObject:
   m_ObjectHideFlags: 0
