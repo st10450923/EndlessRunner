@@ -73,19 +73,20 @@
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\ShieldBuff.cs" />
+    <Compile Include="Assets\Scripts\ZoneManager.cs" />
     <Compile Include="Assets\Scripts\UI\LeaderboardManager.cs" />
-    <Compile Include="Assets\ZoneManager.cs" />
+    <Compile Include="Assets\Scripts\LeaderboardEntry.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\DoubleJump.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossMovement.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Destroy.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTile.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossDespawn.cs" />
+    <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\SpeedBoost.cs" />
     <Compile Include="Assets\Scripts\Meshes\ShieldMesh.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Points.cs" />
     <Compile Include="Assets\Scripts\Meshes\BootsMesh.cs" />
-    <Compile Include="Assets\LeaderboardEntry.cs" />
-    <Compile Include="Assets\AuthenticationManager.cs" />
+    <Compile Include="Assets\Scripts\AuthenticationManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

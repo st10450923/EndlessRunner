@@ -130,6 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe19b5c3c58adc4ab1437dbc4da9e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &301220946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8915079940334190704, guid: cee671a899068cd42982427777e3b245, type: 3}
+  m_PrefabInstance: {fileID: 1538186481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &325213105
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +520,11 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &1275043341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 942509266666948347, guid: 923e22d74dfe3a544b917f038fa74681, type: 3}
+  m_PrefabInstance: {fileID: 1307586965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1307586965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -857,6 +867,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1853716942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 150892904849516895, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_Name
+      value: Beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4104996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.049831
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1928468
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5887209109448537785, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
 --- !u!1 &2083085300
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,14 +968,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81deb90c217a40479043904d5cd593d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeavenShader: {fileID: 0}
-  HellShader: {fileID: 0}
+  HeavenShader: {fileID: 301220946}
+  HellShader: {fileID: 1275043341}
   gameEngine: {fileID: 25838750}
   Player: {fileID: 7649812556120676609}
-  Angel: {fileID: 0}
-  Demon: {fileID: 0}
+  Angel: {fileID: 697346498731951578, guid: 2ac87d151052cd042ab38ff36ded784c, type: 3}
+  Demon: {fileID: 697346498731951578, guid: 9a1f49b40adf38f468c38765f1371682, type: 3}
   BossPointValue: 100
-  InitialSpawnDelay: 30
+  InitialSpawnDelay: 10
   BossSpawnDistance: 200
   BossDuration: 20
 --- !u!1001 &3489847088519173028
@@ -1882,3 +1949,4 @@ SceneRoots:
   - {fileID: 1722875690}
   - {fileID: 7649812556120676608}
   - {fileID: 2083085301}
+  - {fileID: 1853716942}
