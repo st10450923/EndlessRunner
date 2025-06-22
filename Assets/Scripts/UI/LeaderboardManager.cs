@@ -20,8 +20,8 @@ public class LeaderboardManager : MonoBehaviour
         if(!AuthenticationService.Instance.IsSignedIn)
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardID,0);
-        LeaderboardParent.SetActive(false);
     }
+
     private void OnEnable()
     {
         UpdateLeaderboard();
@@ -32,21 +32,18 @@ public class LeaderboardManager : MonoBehaviour
         while (Application.isPlaying && LeaderboardParent.activeInHierarchy)
         {
             LeaderboardScoresPage leaderboardScoresPage = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardID);
-
-            foreach(Transform t in LeaderboardContentParent)
+            foreach (Transform t in LeaderboardContentParent)
             {
                 Destroy(t.gameObject);
             }
-            
             foreach (Unity.Services.Leaderboards.Models.LeaderboardEntry entry in leaderboardScoresPage.Results)
             {
                 Transform leaderboardItem = Instantiate(leaderboardPrefab, LeaderboardContentParent);
                 leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = entry.Rank.ToString();
-                leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = entry.PlayerName;
+                leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = entry.PlayerName.Split('#')[0];
                 leaderboardItem.GetChild(2).GetComponent<TextMeshProUGUI>().text = entry.Score.ToString();
             }
             await LeaderboardsService.Instance.GetScoresAsync(LeaderboardID);
-
         }
     }
 }

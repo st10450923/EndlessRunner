@@ -92,7 +92,6 @@ public class GameEngine : MonoBehaviour
     }
     public void GameOver()
     {
-        FinalScore.text = "Final Score: " + Points;
         UpdateLeaderboard();
         Scoreboard.SetActive(false);
         GameOverScreen.SetActive(true);
