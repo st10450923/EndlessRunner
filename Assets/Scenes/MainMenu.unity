@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: {fileID: 552114012}
-  LeaderboardButton: {fileID: 0}
+  LeaderboardButton: {fileID: 635946158}
 --- !u!1 &600198691
 GameObject:
   m_ObjectHideFlags: 0
