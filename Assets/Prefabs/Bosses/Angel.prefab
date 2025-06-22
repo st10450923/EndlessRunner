@@ -117,4 +117,4 @@ MonoBehaviour:
   Beam: {fileID: 150892904849516895, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
   PlayerTrans: {fileID: 0}
   SpawnDistanceAhead: 10
-  SpawnInterval: 3
+  SpawnInterval: 2.5

@@ -7,8 +7,21 @@ using TMPro;
 
 public class AuthenticationManager : MonoBehaviour
 {
+    public static AuthenticationManager Inst;
     public TMPro.TMP_InputField Name;
     public Button LeaderboardButton;
+    private void Awake()
+    {
+        if (Inst != null && Inst != this)
+        {
+            Destroy(gameObject); 
+        }
+        else
+        {
+            Inst = this;
+            DontDestroyOnLoad(Inst); 
+        }
+    }
     async void Start()
     {
         await UnityServices.InitializeAsync();

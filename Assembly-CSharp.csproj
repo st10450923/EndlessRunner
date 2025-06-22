@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\ShieldBuff.cs" />
     <Compile Include="Assets\Scripts\UI\LeaderboardManager.cs" />
+    <Compile Include="Assets\ZoneManager.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\DoubleJump.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossMovement.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Destroy.cs" />
