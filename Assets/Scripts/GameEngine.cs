@@ -1,6 +1,11 @@
+using Unity.Services.Authentication;
+using Unity.Services.Core;
+using Unity.Services.Leaderboards;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 using static UnityEditor.Experimental.GraphView.GraphView;
 public class GameEngine : MonoBehaviour
 {
@@ -23,18 +28,18 @@ public class GameEngine : MonoBehaviour
     public int BossPointValue = 100;
     public float InitialSpawnDelay = 30f;
     public float BossSpawnDistance = 200f;
-    private Vector3 BossOffset = new Vector3(-10, 2, 5);
+    private Vector3 BossOffset = new(-10, 2, 5);
     bool BossActive = false;
     private float DistanceSinceBoss=0;
     public float BossDuration=20f;
-
+    private static string LeaderboardID = "Leaderboard";
 
     private void Awake()
     {
         Inst = this;
     }
 
-    void Start()
+    private void Start()
     {
         Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
         GameOverScreen.SetActive(false);
@@ -44,6 +49,7 @@ public class GameEngine : MonoBehaviour
 
     void FixedUpdate()
     {
+
         if (!BossActive)
         {
             DistanceSinceBoss += Player.GetComponent<PlayerControls>().ForwardSpeed * Time.deltaTime;
@@ -52,6 +58,15 @@ public class GameEngine : MonoBehaviour
                 SpawnBoss();
             }
         }
+    }
+
+    private async void UpdateLeaderboard()
+    {
+        await UnityServices.InitializeAsync();
+        if(!AuthenticationService.Instance.IsSignedIn)
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        await LeaderboardsService.Instance.AddPlayerScoreAsync(LeaderboardID, Points);
+        await LeaderboardsService.Instance.GetScoresAsync(LeaderboardID);
     }
 
     void SpawnBoss()
@@ -65,7 +80,7 @@ public class GameEngine : MonoBehaviour
     }
     void DestroyBoss()
     {
-        Debug.Log("Destroy Boss!");
+        Debug.Log("Destroyed Boss!");
         Destroy(BossInstance);
         BossActive = false;
         AddPoints(BossPointValue);
@@ -78,6 +93,7 @@ public class GameEngine : MonoBehaviour
     public void GameOver()
     {
         FinalScore.text = "Final Score: " + Points;
+        UpdateLeaderboard();
         Scoreboard.SetActive(false);
         GameOverScreen.SetActive(true);
     }
@@ -108,5 +124,10 @@ public class GameEngine : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -921,7 +921,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -943,11 +949,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 310d94e2-bfca-4bb3-8bec-1dbeeb21d7c3
+  cloudProjectId: 014d6d2b-0531-44a1-ac3f-1732ab8a8ace
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: GADE - PART 1
-  organizationId: devilliercloete
+  organizationId: emberjones
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

@@ -7,7 +7,6 @@ public class PlayerControls : MonoBehaviour
 {
     public Rigidbody rb;
     bool Dead = false;
-    private bool isPaused;
     GameEngine gameEngine;
     public Animator animator;
     [Serialize] public LayerMask GroundMask;
@@ -33,7 +32,6 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
-        Rigidbody rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
     }
