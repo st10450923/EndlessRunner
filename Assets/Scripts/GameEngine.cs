@@ -17,6 +17,7 @@ public class GameEngine : MonoBehaviour
     public Text points;
     public Text FinalScore;
     public GameObject GameOverScreen;
+    public GameObject Leaderboard;
     public GameObject Scoreboard;
     public GameObject PauseMenu;
     //Variables for pickups
@@ -42,6 +43,7 @@ public class GameEngine : MonoBehaviour
     private void Start()
     {
         Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
+        Leaderboard.SetActive(false);
         GameOverScreen.SetActive(false);
         PauseMenu.SetActive(false);
         Invoke(nameof(SpawnBoss), InitialSpawnDelay);
@@ -94,6 +96,7 @@ public class GameEngine : MonoBehaviour
     {
         UpdateLeaderboard();
         Scoreboard.SetActive(false);
+        Leaderboard.SetActive(true);
         GameOverScreen.SetActive(true);
     }
     public void Pause()
