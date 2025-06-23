@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
-    public static BossManager Instance { get; private set; }
+    public static BossManager Inst { get; private set; }
     private bool isSubscribed=false;
     public GameObject Angel;
     public GameObject Demon;
@@ -16,7 +16,18 @@ public class BossManager : MonoBehaviour
     private GameObject CurrentBoss;
     private float ZoneLevel=0;
     private Transform Player;
-
+    private void Awake()
+    {
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start() 
     {
         Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;

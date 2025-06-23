@@ -49,7 +49,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         EventManager.Inst.OnDoubleJumpPickup += HandleDoubleJumpPickup;
-        EventManager.Inst.OnDoubleJumpPickup += HandleShieldPickup;
+        EventManager.Inst.OnShieldPickup += HandleShieldPickup;
         //Debug.Log("Successfully subscribed to events");
     }
 
@@ -58,7 +58,7 @@ public class PlayerControls : MonoBehaviour
         if (EventManager.Inst != null)
         {
             EventManager.Inst.OnDoubleJumpPickup -= HandleDoubleJumpPickup;
-            EventManager.Inst.OnDoubleJumpPickup -= HandleShieldPickup;
+            EventManager.Inst.OnShieldPickup -= HandleShieldPickup;
         }
         StopAllCoroutines();
     }

@@ -3,8 +3,8 @@ using UnityEngine;
 public class SFXManager : MonoBehaviour
 {
     public static SFXManager Inst;
-    private AudioSource audioSource;
-    public float Volume=0.1f;
+    private AudioSource SFXSource;
+    public float SFXVolume=0.1f;
     //PlayerSounds
     public AudioClip PlayerHit;
     public AudioClip PlayerBlock;
@@ -18,7 +18,8 @@ public class SFXManager : MonoBehaviour
         if (Inst == null)
         {
             Inst = this;
-            audioSource = GetComponent<AudioSource>();
+            SFXSource = gameObject.AddComponent<AudioSource>();
+            SFXSource.volume = SFXVolume;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -29,6 +30,6 @@ public class SFXManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         if (clip != null)
-            audioSource.PlayOneShot(clip, Volume);
+            SFXSource.PlayOneShot(clip, SFXVolume);
     }
 }

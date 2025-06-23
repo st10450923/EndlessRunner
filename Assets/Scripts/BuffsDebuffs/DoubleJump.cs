@@ -17,10 +17,8 @@ public class DoubleJump : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         if (other.CompareTag("Player"))
         {
-            // Trigger event instead of direct call
             EventManager.Inst?.TriggerDoubleJumpPickup(Duration);
             SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup);
             Destroy(gameObject);

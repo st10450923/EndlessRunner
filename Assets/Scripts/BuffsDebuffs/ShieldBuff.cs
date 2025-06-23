@@ -4,7 +4,6 @@ public class ShieldBuff : MonoBehaviour
 {
     public float Spin = 90f;
     public int Duration = 10;
-    public float BoostMultiplier = 1.5f;
 
     void Update()
     {
@@ -24,7 +23,6 @@ public class ShieldBuff : MonoBehaviour
             EventManager.Inst?.TriggerShieldPickup(Duration);
 
             SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup);
-
             Destroy(gameObject);
         }
     }
