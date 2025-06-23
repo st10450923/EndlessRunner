@@ -1,110 +1,92 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public enum Zone
-{
-    Heaven,
-    Hell
-}
+public enum Zone { Heaven, Hell }
+
 public class ZoneManager : MonoBehaviour
 {
-    //VariablesForZones
-    private Zone CurrentZone;
+    public static ZoneManager Inst { get; private set; }
+
+    public float ZoneDuration = 120f;
     public GameObject HeavenShader;
     public GameObject HellShader;
-    //Variables for boss
-    public GameEngine gameEngine;
-    public Transform Player;
+    
     public GameObject Angel;
     public GameObject Demon;
-    private GameObject BossInstance;
-    public int BossPointValue = 100;
-    public float InitialSpawnDelay = 40f;
+    public float SpawnDelay = 60f;
+    public float BossDuration = 60f;
     public float BossSpawnDistance = 200f;
+    public int BossBasePoints = 100;
+    public int BossPointsPerLevel = 10;
     private Vector3 BossOffset = new(-10, 2, 5);
-    bool BossActive = false;
-    private float DistanceSinceBoss = 0;
-    public float BossDuration = 20f;
 
+    // Events
+    public delegate void ZoneChangedHandler(Zone newZone, Zone previousZone);
+    public event ZoneChangedHandler OnZoneChanged;
+    public delegate void BossEventHandler(GameObject boss, int pointValue);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Zone CurrentZone;
+    private Zone PreviousZone;
+    private float ZoneAmount;
+    private GameObject BossInst;
+    private Transform Player;
+
+    private void Awake()
     {
-        gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
+        if (Inst != null && Inst != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Inst = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
         Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
         CurrentZone = Zone.Heaven;
-        SpawnBoss(GetBoss(), InitialSpawnDelay);
+        InitializeZone(CurrentZone);
     }
-    void FixedUpdate()
+
+    private void Update()
     {
-        if (!BossActive)
+        ZoneAmount += Time.deltaTime;
+        if (ZoneAmount >= ZoneDuration)
         {
-            DistanceSinceBoss += Player.GetComponent<PlayerControls>().ForwardSpeed * Time.deltaTime;
-            if (DistanceSinceBoss >= BossSpawnDistance)
-            {
-                SpawnBoss(GetBoss());
-            }
-        }
-    }
-    public GameObject GetBoss()
-    {
-        switch (CurrentZone)
-        {
-            case Zone.Heaven:
-                return(Angel);
-            case Zone.Hell:
-                return(Demon);
-            default:
-                return(Angel);
+            SwitchZones();
+            ZoneAmount = 0f;
         }
     }
 
     public void SwitchZones()
     {
-        if (CurrentZone == Zone.Heaven)
-            EnterHeaven();
-        else if (CurrentZone == Zone.Hell)
-            EnterHell();
-    }
-    public void EnterHeaven()
-    {
-        CurrentZone = Zone.Heaven;
-        HeavenShader.SetActive(true);
-        HellShader.SetActive(false);
+        PreviousZone = CurrentZone;
+        CurrentZone = CurrentZone == Zone.Heaven ? Zone.Hell : Zone.Heaven;
+        ZoneAmount++;
+        InitializeZone(CurrentZone);
+        OnZoneChanged(CurrentZone, PreviousZone);
     }
 
-    public void EnterHell()
+    private void InitializeZone(Zone zone)
     {
-        CurrentZone = Zone.Hell;
-        HeavenShader.SetActive(false);
-        HellShader.SetActive(true);
+        if (HeavenShader == null || HellShader == null)
+        {
+            Debug.LogError("Shader references not set in ZoneManager!");
+            return;
+        }
+
+        switch (zone)
+        {
+            case Zone.Heaven:
+                HeavenShader.SetActive(true);
+                HellShader.SetActive(false);
+                break;
+            case Zone.Hell:
+                HeavenShader.SetActive(false);
+                HellShader.SetActive(true);
+                break;
+        }
     }
 
-    void SpawnBoss(GameObject Boss)
-    {
-        Vector3 BossPosition = Player.position + BossOffset;
-        Quaternion BossRotaiton = Quaternion.Euler(50f, -14f, 0f);
-        BossInstance = Instantiate(Boss, BossPosition, BossRotaiton);
-        Invoke("DestroyBoss", BossDuration);
-        BossActive = true;
-        DistanceSinceBoss = 0f;
-    }
-    // Spawn after a delay
-    public void SpawnBoss(GameObject Boss, float delay)
-    {
-        StartCoroutine(SpawnAfterDelay(Boss, delay));
-    }
-
-    private IEnumerator SpawnAfterDelay(GameObject Boss, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SpawnBoss(Boss);
-    }
-    void DestroyBoss()
-    {
-        Debug.Log("Destroyed Boss!");
-        Destroy(BossInstance);
-        BossActive = false;
-        gameEngine.AddPoints(BossPointValue);
-    }
 }

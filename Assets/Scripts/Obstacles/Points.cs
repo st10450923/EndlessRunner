@@ -4,11 +4,8 @@ public class Points : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name != "Player")
-        {
-            return;
-        }
-        GameEngine.Inst.AddPoints(1);
+        if (!other.CompareTag("Player")) return;
+        EventManager.Inst.TriggerPointsGained(1);
         Destroy(gameObject);
     }
 }

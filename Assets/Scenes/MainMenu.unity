@@ -494,6 +494,7 @@ MonoBehaviour:
   HeavenMusic: {fileID: 8300000, guid: 19ab1795a2bc1c64eab1e1bfc8f022ab, type: 3}
   HellMusic: {fileID: 8300000, guid: 2c3a5e8970fcf5243894b52c7e7257be, type: 3}
   MusicVolume: 0.2
+  MusicFadeDuration: 5
 --- !u!4 &178700291
 Transform:
   m_ObjectHideFlags: 0
@@ -2457,6 +2458,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692366384}
   m_CullTransparentMesh: 1
+--- !u!1 &1788093648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788093650}
+  - component: {fileID: 1788093649}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1788093649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788093648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d281d22e92bf3f34f850acd88e0dbf15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1788093650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788093648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1279926, y: -23.066748, z: 34.25639}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912058016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3405,3 +3450,4 @@ SceneRoots:
   - {fileID: 1925393103}
   - {fileID: 2126104421}
   - {fileID: 178700291}
+  - {fileID: 1788093650}

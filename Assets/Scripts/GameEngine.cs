@@ -7,6 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using System.Collections;
 
 
 public class GameEngine : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameEngine : MonoBehaviour
     public float Points;
     public static GameEngine Inst;
     public bool Paused;
+    private bool isSubscribed=false;
     //variables for UI
     public Text points;
     public Text FinalScore;
@@ -27,7 +29,6 @@ public class GameEngine : MonoBehaviour
     //Variables for pickups
     public float PointsMultiplier=1;
     public int PickupSpawnRate=1;
-
 
     private void Awake()
     {
@@ -48,7 +49,35 @@ public class GameEngine : MonoBehaviour
         GameOverScreen.SetActive(false);
         PauseMenu.SetActive(false);
     }
+    private void OnEnable()
+    {
+        StartCoroutine(SubscribeWhenReady());
+    }
+    private void OnDisable()
+    {
+        StartCoroutine(Unsubscribe());
+    }
+    private IEnumerator SubscribeWhenReady()
+    {
+        while (EventManager.Inst == null)
+        {
+            yield return null;
+        }
 
+        if (!isSubscribed)
+        {
+            EventManager.Inst.OnPointsGained += AddPoints;
+            isSubscribed = true;
+        }
+    }
+    private IEnumerator Unsubscribe()
+    {
+        if (EventManager.Inst != null)
+        {
+            EventManager.Inst.OnPointsGained -= AddPoints;
+        }
+        yield break; 
+    }
     private async void UpdateLeaderboard()
     {
         await UnityServices.InitializeAsync();
@@ -69,6 +98,11 @@ public class GameEngine : MonoBehaviour
         Scoreboard.SetActive(false);
         Leaderboard.SetActive(true);
         GameOverScreen.SetActive(true);
+    }
+    public void DeactivateDeathScreen()
+    {
+        GameOverScreen.SetActive(false);
+        Leaderboard.SetActive(false);
     }
     public void Pause()
     {
@@ -102,6 +136,7 @@ public class GameEngine : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Unpause();
     }
 
 }

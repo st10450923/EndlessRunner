@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Tiles\GroundTileSplit.cs" />
+    <Compile Include="Assets\Scripts\BossManager.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\PointsBoost.cs" />
     <Compile Include="Assets\Scripts\GameEngine.cs" />
@@ -69,9 +70,11 @@
     <Compile Include="Assets\Scripts\Meshes\HaloMesh.cs" />
     <Compile Include="Assets\Scripts\BossScripts\AngelAttack.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundSpawner.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTileMiddle.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\DemonAttack.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\ShieldBuff.cs" />
     <Compile Include="Assets\Scripts\ZoneManager.cs" />
     <Compile Include="Assets\Scripts\UI\LeaderboardManager.cs" />
