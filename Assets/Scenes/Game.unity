@@ -399,6 +399,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Offset: {x: 0, y: 0, z: 0}
   Player: {fileID: 0}
+--- !u!114 &406879577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3978801571034437220, guid: a4cbd1ddfc74c9a4fb7c651765a04423, type: 3}
+  m_PrefabInstance: {fileID: 6216353184110293314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edfd9a9e8c34e343a1db960d94355c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SFXVolume: 0.1
+  SFXVolume: 0.5
   PlayerHit: {fileID: 8300000, guid: db560f3458b487a4dbbfb2b4517a244c, type: 3}
   PlayerBlock: {fileID: 8300000, guid: 3f5ed6244017ecf489afb0dd90a75920, type: 3}
   PlayerPickup: {fileID: 8300000, guid: 03823bb99d7f99a4bb070e511e9f4644, type: 3}
@@ -1115,6 +1126,9 @@ MonoBehaviour:
   ZoneDuration: 30
   HeavenShader: {fileID: 301220946}
   HellShader: {fileID: 1275043341}
+  Background: {fileID: 325213108}
+  HeavenBG: {fileID: 2100000, guid: 9f7e37759b4348549bef0c177f9fce5e, type: 2}
+  HellBG: {fileID: 2100000, guid: 36ca02b6bcf28074f8ac39cada1de271, type: 2}
   Angel: {fileID: 697346498731951578, guid: 2ac87d151052cd042ab38ff36ded784c, type: 3}
   Demon: {fileID: 697346498731951578, guid: 9a1f49b40adf38f468c38765f1371682, type: 3}
   SpawnDelay: 15
@@ -1615,6 +1629,10 @@ PrefabInstance:
       propertyPath: FinalScore
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4561934475034778247, guid: a4cbd1ddfc74c9a4fb7c651765a04423, type: 3}
+      propertyPath: PauseScore
+      value: 
+      objectReference: {fileID: 406879577}
     - target: {fileID: 4561934475034778247, guid: a4cbd1ddfc74c9a4fb7c651765a04423, type: 3}
       propertyPath: Leaderboard
       value: 

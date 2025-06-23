@@ -15,13 +15,13 @@ public class Obstacle : MonoBehaviour
         {
             if (playerControls.isShielded == true)
             {
+                SFXManager.Inst.PlaySFX(SFXManager.Inst.PlayerBlock,1);
                 Destroy(gameObject);
                 playerControls.EndShieldBuff();
-                SFXManager.Inst.PlaySFX(SFXManager.Inst.PlayerBlock);
             }
             else
             {
-                SFXManager.Inst.PlaySFX(SFXManager.Inst.PlayerHit);
+                SFXManager.Inst.PlaySFX(SFXManager.Inst.PlayerHit,1);
                 playerControls.KillPlayer();
             }
         }

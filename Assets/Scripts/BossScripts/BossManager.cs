@@ -1,5 +1,7 @@
 using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossManager : MonoBehaviour
 {
@@ -21,17 +23,15 @@ public class BossManager : MonoBehaviour
         if (Inst == null)
         {
             Inst = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
     }
-    private void Start() 
-    {
-        Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
-    }
+
+
     private void OnEnable()
     {
         StartCoroutine(SubscribeWhenReady());
@@ -59,7 +59,7 @@ public class BossManager : MonoBehaviour
 
     private void HandleZoneChange(Zone newZone, Zone previousZone)
     {
-        Debug.Log("BossManager Zone Changed");
+        //Debug.Log("BossManager Zone Changed");
         StopAllCoroutines();
         if (CurrentBoss != null)
         {

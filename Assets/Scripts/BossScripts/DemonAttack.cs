@@ -11,7 +11,7 @@ public class DemonAttack : MonoBehaviour
     private void Start()
     {
         PlayerTrans = GameObject.FindFirstObjectByType<PlayerControls>().transform;
-        SFXManager.Inst?.PlaySFX(SFXManager.Inst.DemonSpawn);
+        SFXManager.Inst?.PlaySFX(SFXManager.Inst.DemonSpawn, 0.5f);
     }
     private void FixedUpdate()
     {
@@ -29,6 +29,6 @@ public class DemonAttack : MonoBehaviour
         Vector3 spawnPos = PlayerTrans.position + Vector3.forward * SpawnDistanceAhead;
         spawnPos.y = 0f; 
         Instantiate(Beam, spawnPos, Quaternion.identity);
-        SFXManager.Inst.PlaySFX(SFXManager.Inst.BossAttack);
+        SFXManager.Inst.PlaySFX(SFXManager.Inst.BossAttack, 1);
     }
 }

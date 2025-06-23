@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5104316442207282254}
   - component: {fileID: 6361911790172860631}
   - component: {fileID: 3133816270846247114}
+  - component: {fileID: 3972051614223614412}
   m_Layer: 0
   m_Name: Spear
   m_TagString: Obstacle
@@ -87,6 +88,19 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &3972051614223614412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896825659314744551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d6ff6f7489b384db303527b77f9f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Delay: 10
 --- !u!1001 &2766851788409159223
 PrefabInstance:
   m_ObjectHideFlags: 0

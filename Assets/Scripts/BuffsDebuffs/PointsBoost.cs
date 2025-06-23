@@ -22,7 +22,7 @@ public class PointBoost : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             EventManager.Inst?.TriggerPointsMultiplierPickup(Duration, BoostMultiplier);
-            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup);
+            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup, 0.5f);
             Destroy(gameObject);
         }
     }

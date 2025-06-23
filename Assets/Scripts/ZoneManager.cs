@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public enum Zone { Heaven, Hell }
 
@@ -11,6 +12,10 @@ public class ZoneManager : MonoBehaviour
     public float ZoneDuration = 30f;
     public GameObject HeavenShader;
     public GameObject HellShader;
+
+    public Renderer Background;
+    public Material HeavenBG;
+    public Material HellBG;
     
     public GameObject Angel;
     public GameObject Demon;
@@ -35,20 +40,29 @@ public class ZoneManager : MonoBehaviour
     {
         if (Inst != null && Inst != this)
         {
-            Destroy(gameObject);
+            Destroy(this);
             return;
         }
+
         Inst = this;
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
+    private void OnDestroy()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ZoneCount = 0;
+        //Debug.Log($"Scene {scene.name} loaded with mode {mode}");
         Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
         CurrentZone = Zone.Hell;
         SwitchZones();
     }
-
     private void Update()
     {
         ZoneTimer += Time.deltaTime;
@@ -56,10 +70,6 @@ public class ZoneManager : MonoBehaviour
         {
             SwitchZones();
             ZoneTimer = 0f; 
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SwitchZones();
         }
     }
 
@@ -78,6 +88,7 @@ public class ZoneManager : MonoBehaviour
     {
         if (HeavenShader == null || HellShader == null)
         {
+            Debug.Log("Null Shader");
             return;
         }
 
@@ -86,10 +97,13 @@ public class ZoneManager : MonoBehaviour
             case Zone.Heaven:
                 HeavenShader.SetActive(true);
                 HellShader.SetActive(false);
+                Background.material = HeavenBG;
+
                 break;
             case Zone.Hell:
                 HeavenShader.SetActive(false);
                 HellShader.SetActive(true);
+                Background.material = HellBG;
                 break;
         }
     }

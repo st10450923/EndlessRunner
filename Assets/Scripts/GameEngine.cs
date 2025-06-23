@@ -22,6 +22,7 @@ public class GameEngine : MonoBehaviour
     //variables for UI
     public Text points;
     public Text FinalScore;
+    public Text PauseScore;
     public GameObject GameOverScreen;
     public GameObject Leaderboard;
     public GameObject Scoreboard;
@@ -30,17 +31,16 @@ public class GameEngine : MonoBehaviour
     public float PointsMultiplier=1;
     public int PickupSpawnRate=1;
     private bool isPointBoostActive=false;
-
     private void Awake()
     {
-        if (Inst != null && Inst != this)
+        if (Inst == null)
         {
-            Destroy(gameObject); 
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Inst = this;
-            DontDestroyOnLoad(Inst); 
+            Destroy(gameObject);
         }
     }
     private void Start()
@@ -119,7 +119,6 @@ public class GameEngine : MonoBehaviour
     public void GameOver()
     {
         UpdateLeaderboard();
-        Scoreboard.SetActive(false);
         Leaderboard.SetActive(true);
         GameOverScreen.SetActive(true);
     }
@@ -131,6 +130,7 @@ public class GameEngine : MonoBehaviour
     public void Pause()
     {
         PauseMenu.SetActive(true);
+        PauseScore.text = "Score: " + Points;
         Time.timeScale = 0f;
         Paused = true;
     }
@@ -149,8 +149,14 @@ public class GameEngine : MonoBehaviour
     }
     public void Restart()
     {
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Unpause();
+        PointsMultiplier = 1f;
+        isPointBoostActive = false;
+        Points = 0;
+        points.text = "Points: " + Points;
+        GameOverScreen.SetActive(false);
     }
     public void Quit()
     {

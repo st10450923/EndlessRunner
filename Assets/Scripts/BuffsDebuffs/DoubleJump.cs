@@ -20,7 +20,7 @@ public class DoubleJump : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             EventManager.Inst?.TriggerDoubleJumpPickup(Duration);
-            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup);
+            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup, 0.5f);
             Destroy(gameObject);
         }
     }

@@ -15,7 +15,7 @@ public class AngelAttack : MonoBehaviour
     private void Start()
     {
         PlayerTrans = GameObject.FindFirstObjectByType<PlayerControls>().transform;
-        SFXManager.Inst?.PlaySFX(SFXManager.Inst.BossSpawn);
+        SFXManager.Inst?.PlaySFX(SFXManager.Inst.BossSpawn, 0.5f);
     }
     private void FixedUpdate()
     {
@@ -34,6 +34,6 @@ public class AngelAttack : MonoBehaviour
             Vector3 spawnPos = new Vector3(Random.Range(-SpearSpread, SpearSpread),SpawnHeight,PlayerTrans.position.z+SpawnDistanceAhead);
             Instantiate(Spear, spawnPos, Quaternion.identity);
         }
-        SFXManager.Inst?.PlaySFX(SFXManager.Inst.SpearThrowSound);
+        SFXManager.Inst?.PlaySFX(SFXManager.Inst.SpearThrowSound, 1);
     }
 }

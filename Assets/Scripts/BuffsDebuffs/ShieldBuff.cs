@@ -22,7 +22,7 @@ public class ShieldBuff : MonoBehaviour
         {
             EventManager.Inst?.TriggerShieldPickup(Duration);
 
-            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup);
+            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup, 0.5f);
             Destroy(gameObject);
         }
     }
