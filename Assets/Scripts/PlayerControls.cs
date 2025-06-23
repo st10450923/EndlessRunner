@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -34,6 +36,31 @@ public class PlayerControls : MonoBehaviour
         gameEngine = GameObject.FindFirstObjectByType<GameEngine>();
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+    }
+    private void OnEnable()
+    {
+        StartCoroutine(SubscribeToEvents());
+    }
+    private IEnumerator SubscribeToEvents()
+    {
+        while (EventManager.Inst == null)
+        {
+            yield return null; 
+        }
+
+        EventManager.Inst.OnDoubleJumpPickup += HandleDoubleJumpPickup;
+        EventManager.Inst.OnDoubleJumpPickup += HandleShieldPickup;
+        //Debug.Log("Successfully subscribed to events");
+    }
+
+    private void OnDisable()
+    {
+        if (EventManager.Inst != null)
+        {
+            EventManager.Inst.OnDoubleJumpPickup -= HandleDoubleJumpPickup;
+            EventManager.Inst.OnDoubleJumpPickup -= HandleShieldPickup;
+        }
+        StopAllCoroutines();
     }
     private void FixedUpdate()
     {
@@ -111,72 +138,41 @@ public class PlayerControls : MonoBehaviour
         SpeedMultiplier = 1;
         //Debug.Log("Speed Boost Lost");
     }
-    //Functions for points multiplier
-    public void PointBoost(int duration, float BoostAmount)
-    {
-        if (PointsBoosted == true)
-        {
-            CancelInvoke("EndPointBoost");
-            Invoke("EndPointBoost", duration);
-            //Debug.Log("Point Boost Extended");
-        }
-        else
-        {
-            PointsBoosted = true;
-            gameEngine.PointsMultiplier = BoostAmount;
-            Invoke("EndPointBoost", duration);
-            //Debug.Log("Point Boost Gained");
-        }
-    }
-    void EndPointBoost()
-    {
-        PointsBoosted = false;
-        gameEngine.PointsMultiplier = 1;
-        //Debug.Log("Point Boost Lost");
-    }
     // Functions for shield
-    public void ShieldBuff(float duration)
+    public void HandleShieldPickup(int duration)
     {
-        if (isShielded == true)
+        if (isShielded)
         {
-            CancelInvoke("EndShieldBuff");
-            Invoke("EndShieldBuff", duration);
-            //Debug.Log("Shield Extended");
+            CancelInvoke(nameof(EndShieldBuff));
         }
         else
         {
             isShielded = true;
-            Invoke("EndShieldBuff", duration);
-            //Debug.Log("Shield Gained");
         }
+        Invoke(nameof(EndShieldBuff), duration);
     }
     public void EndShieldBuff()
     {
-        CancelInvoke("EndShieldBuff");
+        CancelInvoke(nameof(EndShieldBuff));
         isShielded = false;
-        //Debug.Log("Shield Lost");
     }
     // Functions for Double Jump 
-    public void DoubleJump(float duration)
+    private void HandleDoubleJumpPickup(int duration)
     {
-        if (hasDoubleJump == true)
+        if (hasDoubleJump)
         {
-            CancelInvoke("EndDoubleJump");
-            Invoke("EndDoubleJump", duration);
-            //Debug.Log("Double Jump Extended");
+            CancelInvoke(nameof(EndDoubleJump ));
         }
         else
         {
             hasDoubleJump = true;
             DoubleJumpAvailable = true;
-            Invoke("EndDoubleJump", duration);
-            //Debug.Log("Double Jump Gained");
         }
+    Invoke(nameof(EndDoubleJump), duration);
     }
     public void EndDoubleJump()
     {
-        CancelInvoke("EndDoubleJump");
+        CancelInvoke(nameof(EndDoubleJump));
         hasDoubleJump = false;
-        //Debug.Log("Double Jump Lost");
     }
 }

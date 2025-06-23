@@ -17,9 +17,13 @@ public class Obstacle : MonoBehaviour
             {
                 Destroy(gameObject);
                 playerControls.EndShieldBuff();
+                SFXManager.Inst.PlaySFX(SFXManager.Inst.PlayerBlock);
             }
             else
+            {
+                SFXManager.Inst.PlaySFX(SFXManager.Inst.PlayerHit);
                 playerControls.KillPlayer();
+            }
         }
         
     }

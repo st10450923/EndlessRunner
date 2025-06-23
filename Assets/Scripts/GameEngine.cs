@@ -29,6 +29,7 @@ public class GameEngine : MonoBehaviour
     //Variables for pickups
     public float PointsMultiplier=1;
     public int PickupSpawnRate=1;
+    private bool isPointBoostActive=false;
 
     private void Awake()
     {
@@ -67,6 +68,7 @@ public class GameEngine : MonoBehaviour
         if (!isSubscribed)
         {
             EventManager.Inst.OnPointsGained += AddPoints;
+            EventManager.Inst.OnPointsMultiplierPickup += ActivatePointBoost;
             isSubscribed = true;
         }
     }
@@ -75,8 +77,30 @@ public class GameEngine : MonoBehaviour
         if (EventManager.Inst != null)
         {
             EventManager.Inst.OnPointsGained -= AddPoints;
+            EventManager.Inst.OnPointsMultiplierPickup -= ActivatePointBoost;
         }
         yield break; 
+    }
+
+    private void ActivatePointBoost(int duration, float multiplier)
+    {
+        if (isPointBoostActive)
+        {
+            CancelInvoke(nameof(EndPointBoost));
+        }
+        else
+        {
+            isPointBoostActive = true;
+        }
+
+        PointsMultiplier = multiplier;
+        Invoke(nameof(EndPointBoost), duration);
+
+    }
+    private void EndPointBoost()
+    {
+        PointsMultiplier = 1f;
+        isPointBoostActive = false;
     }
     private async void UpdateLeaderboard()
     {

@@ -1,33 +1,29 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class DoubleJump
-    : MonoBehaviour
+public class DoubleJump : MonoBehaviour
 {
-    PlayerControls playerControls;
-    public float Spin=90f;
-    public int DoubleJumpDuration=5;
-    void Start()
+    public float SpinSpeed = 90f;
+    public int Duration = 5;
+
+    private void Update()
     {
-        playerControls = GameObject.FindFirstObjectByType<PlayerControls>();
+        transform.Rotate(0, -SpinSpeed * Time.deltaTime, 0);
     }
 
-    void Update()
-    {
-        transform.Rotate(0, -Spin * Time.deltaTime, 0 );
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Obstacle>() != null)
+        if (other.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
             return;
         }
-        if (other.gameObject.name == "Player")
+
+        if (other.CompareTag("Player"))
         {
-            playerControls.DoubleJump(DoubleJumpDuration);
+            // Trigger event instead of direct call
+            EventManager.Inst?.TriggerDoubleJumpPickup(Duration);
+            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup);
             Destroy(gameObject);
         }
-
     }
 }

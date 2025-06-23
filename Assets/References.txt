@@ -1,0 +1,8 @@
+References: 
+SFX:
+Beam SFX: https://pixabay.com/sound-effects/woosh-saber-laser-346099/
+Collission SFX: https://pixabay.com/sound-effects/metal-impact-247482/ , Sound Effect by u_ml52e3xzf7 from Pixabay
+
+Music:
+https://onemansymphony.bandcamp.com/album/destruction-bringer-free, track 2, 'Boss Fight Theme 02'
+https://onemansymphony.bandcamp.com/album/wreckage-free , track 4, 'Wreckage'

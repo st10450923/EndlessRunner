@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeavenMusic: {fileID: 8300000, guid: 19ab1795a2bc1c64eab1e1bfc8f022ab, type: 3}
   HellMusic: {fileID: 8300000, guid: 2c3a5e8970fcf5243894b52c7e7257be, type: 3}
-  MusicVolume: 0.2
+  MusicVolume: 0.1
   MusicFadeDuration: 1
 --- !u!4 &178700291
 Transform:

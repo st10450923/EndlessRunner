@@ -1,33 +1,31 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PointBoost : MonoBehaviour
 {
-    PlayerControls playerControls;
-    public float Spin=90f;
-    public int Duration=10;
-    public float BoostMultiplier=1.5f;
-    void Start()
-    {
-        playerControls = GameObject.FindFirstObjectByType<PlayerControls>();
-    }
+    public float Spin = 90f;
+    public int Duration = 10;
+    public float BoostMultiplier = 1.5f;
 
     void Update()
     {
-        transform.Rotate(0, -Spin * Time.deltaTime, 0 );
+        transform.Rotate(0, -Spin * Time.deltaTime, 0);
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Obstacle>() != null)
+        if (other.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
             return;
         }
-        if (other.gameObject.name == "Player")
+
+        if (other.CompareTag("Player"))
         {
-            playerControls.PointBoost(Duration, BoostMultiplier);
+            EventManager.Inst?.TriggerPointsMultiplierPickup(Duration, BoostMultiplier);
+
+            SFXManager.Inst?.PlaySFX(SFXManager.Inst.PlayerPickup);
+
             Destroy(gameObject);
         }
-
     }
 }

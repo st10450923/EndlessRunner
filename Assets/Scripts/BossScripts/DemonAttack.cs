@@ -19,16 +19,16 @@ public class DemonAttack : MonoBehaviour
 
         if (TIMER >= SpawnInterval)
         {
-            SpawnSpear();
+            SpawnBeam();
             TIMER = 0f;
         }
     }
 
-    private void SpawnSpear()
+    private void SpawnBeam()
     {
         Vector3 spawnPos = PlayerTrans.position + Vector3.forward * SpawnDistanceAhead;
         spawnPos.y = 0f; 
         Instantiate(Spear, spawnPos, Quaternion.identity);
-        Debug.Log("Demon Attacked!");
+        SFXManager.Inst.PlaySFX(SFXManager.Inst.BossAttack);
     }
 }
