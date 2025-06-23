@@ -66,14 +66,16 @@ public class MusicManager : MonoBehaviour
 
     private void HandleZoneChange(Zone newZone, Zone previousZone)
     {
-        Debug.Log("MusicManager Zone Changed");
+        StopAllCoroutines();
         switch (newZone)
         {
             case Zone.Heaven:
-                FadeToMusic(HeavenMusic,MusicFadeDuration);
+                if(MusicSource.clip!=HeavenMusic)
+                    StartCoroutine(FadeToMusic(HeavenMusic,MusicFadeDuration));
                 break;
             case Zone.Hell:
-                FadeToMusic(HellMusic, MusicFadeDuration);
+                if (MusicSource.clip != HellMusic)
+                    StartCoroutine(FadeToMusic(HellMusic, MusicFadeDuration));
                 break;
         }
     }
