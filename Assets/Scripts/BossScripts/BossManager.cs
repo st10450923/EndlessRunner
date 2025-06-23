@@ -79,6 +79,7 @@ public class BossManager : MonoBehaviour
 
     private IEnumerator SpawnBoss(GameObject prefab, float delay)
     {
+        Player = GameObject.FindFirstObjectByType<PlayerControls>().transform;
         yield return new WaitForSeconds(delay);
         if (CurrentBoss != null)
             Destroy(CurrentBoss);

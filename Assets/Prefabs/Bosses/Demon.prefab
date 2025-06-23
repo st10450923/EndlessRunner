@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4523230116002286453}
   - component: {fileID: 9190892391974709919}
-  - component: {fileID: 5779296347465669288}
+  - component: {fileID: 6398407042334670019}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Untagged
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Offset: {x: -10, y: 2, z: 5}
---- !u!114 &5779296347465669288
+--- !u!114 &6398407042334670019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,13 +56,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 697346498731951578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 674a25460aa70f64290e3fb2fe813b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: ac334395da867cb49a57b6672d02170f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Beam: {fileID: 150892904849516895, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
   PlayerTrans: {fileID: 0}
   SpawnDistanceAhead: 10
-  SpawnInterval: 2.5
+  SpawnInterval: 4
 --- !u!1001 &8258333778409733036
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -114,7 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674a25460aa70f64290e3fb2fe813b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Beam: {fileID: 150892904849516895, guid: a9050ebded6b919499f3dc53808dfaa0, type: 3}
+  Spear: {fileID: 2896825659314744551, guid: 6a5954ec323384047a815131be31c7ac, type: 3}
   PlayerTrans: {fileID: 0}
-  SpawnDistanceAhead: 10
-  SpawnInterval: 2.5
+  SpawnDistanceAhead: 15
+  SpawnHeight: 10
+  NumberOfSpears: 2
+  SpearSpread: 2.5
+  SpawnInterval: 3

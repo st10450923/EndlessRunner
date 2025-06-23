@@ -12,6 +12,8 @@ public class SFXManager : MonoBehaviour
     //BossSounds
     public AudioClip BossAttack;
     public AudioClip BossSpawn;
+    public AudioClip DemonSpawn;
+    public AudioClip SpearThrowSound;
 
     private void Awake()
     {

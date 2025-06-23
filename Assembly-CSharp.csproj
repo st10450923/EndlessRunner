@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Tiles\GroundTileSplit.cs" />
-    <Compile Include="Assets\Scripts\BossManager.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\PointsBoost.cs" />
     <Compile Include="Assets\Scripts\GameEngine.cs" />
@@ -79,11 +78,12 @@
     <Compile Include="Assets\Scripts\ZoneManager.cs" />
     <Compile Include="Assets\Scripts\UI\LeaderboardManager.cs" />
     <Compile Include="Assets\Scripts\LeaderboardEntry.cs" />
+    <Compile Include="Assets\Scripts\SpearController.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\DoubleJump.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossMovement.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossManager.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Destroy.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTile.cs" />
-    <Compile Include="Assets\Scripts\BossScripts\BossDespawn.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\SpeedBoost.cs" />

@@ -694,6 +694,8 @@ MonoBehaviour:
   PlayerPickup: {fileID: 8300000, guid: 03823bb99d7f99a4bb070e511e9f4644, type: 3}
   BossAttack: {fileID: 8300000, guid: e2f06952c5f91434e9633464a6656d0f, type: 3}
   BossSpawn: {fileID: 8300000, guid: 6396ff1879c150d4b900fcb0d8bb09ec, type: 3}
+  DemonSpawn: {fileID: 8300000, guid: 059d1ec9d4d107e4fabf095c5ddc0cca, type: 3}
+  SpearThrowSound: {fileID: 8300000, guid: 03823bb99d7f99a4bb070e511e9f4644, type: 3}
 --- !u!4 &1482489841
 Transform:
   m_ObjectHideFlags: 0
