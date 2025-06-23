@@ -38,8 +38,10 @@ public class LeaderboardManager : MonoBehaviour
             }
             foreach (Unity.Services.Leaderboards.Models.LeaderboardEntry entry in leaderboardScoresPage.Results)
             {
+                int DisplayRank = entry.Rank;
+                DisplayRank++;
                 Transform leaderboardItem = Instantiate(leaderboardPrefab, LeaderboardContentParent);
-                leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = entry.Rank+1.ToString();
+                leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = DisplayRank.ToString();
                 leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = entry.PlayerName.Split('#')[0];
                 leaderboardItem.GetChild(2).GetComponent<TextMeshProUGUI>().text = entry.Score.ToString();
             }

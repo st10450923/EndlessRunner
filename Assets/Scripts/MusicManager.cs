@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayZoneMusic(Zone.Heaven);
+        PlayZoneMusic(Zone.Hell);
     }
 
     private void OnEnable()
@@ -41,32 +41,21 @@ public class MusicManager : MonoBehaviour
 
     private IEnumerator SubscribeWhenReady()
     {
-        if (isSubscribed) yield break;
-        while (EventManager.Inst == null)
+        while (ZoneManager.Inst == null)
         {
             yield return null;
         }
-        if (!isSubscribed)
-        {
-            EventManager.Inst.OnZoneChanged += HandleZoneChange;
-            isSubscribed = true;
-        }
+        ZoneManager.Inst.OnZoneChanged += HandleZoneChange;
+        HandleZoneChange(ZoneManager.Inst.CurrentZone, Zone.Heaven);
     }
-    private IEnumerator Unsubscribe()
-    {
-        if (!isSubscribed) yield break;
-        if (EventManager.Inst != null)
-        {
-            EventManager.Inst.OnZoneChanged -= HandleZoneChange;
-        }
-        isSubscribed = false;
 
-        CancelInvoke(nameof(SubscribeWhenReady));
-        yield return null;
-    }
     private void OnDisable()
     {
-        StartCoroutine(Unsubscribe());
+        if (isSubscribed && ZoneManager.Inst != null)
+        {
+            ZoneManager.Inst.OnZoneChanged -= HandleZoneChange;
+        }
+        StopAllCoroutines();
     }
 
     public void PlayZoneMusic(Zone zone)
@@ -77,6 +66,7 @@ public class MusicManager : MonoBehaviour
 
     private void HandleZoneChange(Zone newZone, Zone previousZone)
     {
+        Debug.Log("MusicManager Zone Changed");
         switch (newZone)
         {
             case Zone.Heaven:

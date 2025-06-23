@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class BossManager : MonoBehaviour
 {
+    public static BossManager Instance { get; private set; }
     private bool isSubscribed=false;
     public GameObject Angel;
     public GameObject Demon;
-    public float SpawnDelay = 0f;
-    public float BossDuration = 30f;
+    public float SpawnDelay = 15f;
+    public float BossDuration = 15f;
     public Vector3 SpawnOffset = new(-10, 2, 5);
     public int BasePoints = 100;
     public int PointsPerLevel = 10;
@@ -22,44 +23,44 @@ public class BossManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        SubscribeToEvents();
+        StartCoroutine(SubscribeWhenReady());
+    }
+
+    private IEnumerator SubscribeWhenReady()
+    {
+        while (ZoneManager.Inst == null)
+        {
+            yield return null;
+        }
+        ZoneManager.Inst.OnZoneChanged += HandleZoneChange;
+        HandleZoneChange(ZoneManager.Inst.CurrentZone, Zone.Heaven);
     }
 
     private void OnDisable()
     {
-        UnsubscribeFromEvents();
-    }
-
-    private void SubscribeToEvents()
-    {
-        if (isSubscribed) return;
-        if (EventManager.Inst == null)
+        if (isSubscribed && ZoneManager.Inst != null)
         {
-            Invoke(nameof(SubscribeToEvents), 0.1f);
-            return;
+            ZoneManager.Inst.OnZoneChanged -= HandleZoneChange;
         }
-
-        EventManager.Inst.OnZoneChanged += HandleZoneChanged;
-        isSubscribed = true;
-    }
-
-    private void UnsubscribeFromEvents()
-    {
-        if (!isSubscribed) return;
-        if (EventManager.Inst != null)
-        {
-            EventManager.Inst.OnZoneChanged -= HandleZoneChanged;
-        }
-        isSubscribed = false;
-        CancelInvoke(nameof(SubscribeToEvents));
-    }
-
-    private void HandleZoneChanged(Zone newZone, Zone previousZone)
-    {
         StopAllCoroutines();
+    }
+
+
+    private void HandleZoneChange(Zone newZone, Zone previousZone)
+    {
+        Debug.Log("BossManager Zone Changed");
+        StopAllCoroutines();
+        if (CurrentBoss != null)
+        {
+            Destroy(CurrentBoss);
+            CancelInvoke(nameof(DefeatBoss)); 
+        }
         GameObject prefab = newZone == Zone.Heaven ? Angel : Demon;
         StartCoroutine(SpawnBoss(prefab, SpawnDelay));
+
+        ZoneLevel++;
     }
+
     private int CalculateBossPoints()
     {
         return BasePoints + (int)(PointsPerLevel*ZoneLevel);
@@ -78,7 +79,6 @@ public class BossManager : MonoBehaviour
     private void DefeatBoss()
     {
         if (!CurrentBoss) return;
-        ZoneLevel++;
         int points = CalculateBossPoints();
         EventManager.Inst.TriggerBossDefeated(CurrentBoss, points);
         EventManager.Inst.TriggerPointsGained(points);
