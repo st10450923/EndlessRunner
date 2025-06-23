@@ -76,12 +76,14 @@ public class ZoneManager : MonoBehaviour
     public void SwitchZones()
     {
         PreviousZone = CurrentZone;
-        CurrentZone = CurrentZone == Zone.Heaven ? Zone.Hell : Zone.Heaven;
-        ZoneCount++; 
-
+        if (ZoneCount < 2)
+            CurrentZone = CurrentZone == Zone.Heaven ? Zone.Hell : Zone.Heaven;
+        else
+            CurrentZone = (Zone)UnityEngine.Random.Range(0, Enum.GetValues(typeof(Zone)).Length);
+        ZoneCount++;
         InitializeZone(CurrentZone);
         OnZoneChanged?.Invoke(CurrentZone, PreviousZone);
-        Debug.Log($"Switched to {CurrentZone} (Count: {ZoneCount})");
+        //Debug.Log($"Switched to {CurrentZone} (Count: {ZoneCount})");
     }
 
     private void InitializeZone(Zone zone)

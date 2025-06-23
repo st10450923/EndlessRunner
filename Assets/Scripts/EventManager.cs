@@ -58,13 +58,13 @@ public class EventManager : MonoBehaviour
     public void TriggerDoubleJumpPickup(int duration)
     {
         OnDoubleJumpPickup?.Invoke(duration);
-        Debug.Log($"Double jump pickup triggered for {duration}sec");
+       // Debug.Log($"Double jump pickup triggered for {duration}sec");
     }
 
     public void TriggerShieldPickup(int duration)
     {
         OnShieldPickup?.Invoke(duration);
-        Debug.Log($"Shield pickup triggered for {duration}sec");
+       // Debug.Log($"Shield pickup triggered for {duration}sec");
     }
 
     public void TriggerPointsMultiplierPickup(int duration,float multiplier)
