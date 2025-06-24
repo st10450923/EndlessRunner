@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\BossScripts\AngelAttack.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundSpawner.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Scoreboard.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTileMiddle.cs" />
     <Compile Include="Assets\Scripts\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
@@ -84,7 +85,6 @@
     <Compile Include="Assets\Scripts\BossScripts\BossManager.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Destroy.cs" />
     <Compile Include="Assets\Scripts\Tiles\GroundTile.cs" />
-    <Compile Include="Assets\Scoreboard.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\BuffsDebuffs\SpeedBoost.cs" />

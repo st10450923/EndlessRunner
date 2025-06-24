@@ -197,8 +197,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2337574307594662521}
   m_HandleRect: {fileID: 6373147651517034362}
   m_Direction: 2
-  m_Value: 0.99999756
-  m_Size: 0.9166665
+  m_Value: 1
+  m_Size: 0.91666675
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
+  m_ShowMaskGraphic: 1
 --- !u!1 &2992338362780254398
 GameObject:
   m_ObjectHideFlags: 0
